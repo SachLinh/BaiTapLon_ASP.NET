@@ -20,18 +20,28 @@ namespace webBanHang.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Index(string userName, string passWord)
         {
-            string Name = userName;
-            string Pass = passWord;
-            var acc = db.Admins.SingleOrDefault(x => x.UserName == Name && x.PassWord == Pass);
-            if(acc != null)
+            if(ModelState.IsValid)
             {
-                Session["Name"] = Name;
-               return RedirectToAction("Index", "Home");
+                string Name = userName;
+                string Pass = passWord;
+                var acc = db.Admins.SingleOrDefault(x => x.UserName == Name && x.PassWord == Pass);
+                if (acc != null)
+                {
+                    Session["Name"] = Name;
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Đăng nhập không đúng!!!");
+                }
             }
-            else
-            {
-                return View();
-            }  
+            return View();
+        }
+        [HttpPost]
+        public ActionResult LogOut()
+        {
+            Session["Name"] = null;
+            return RedirectToAction("Index", "Login");
         }
     }
 }

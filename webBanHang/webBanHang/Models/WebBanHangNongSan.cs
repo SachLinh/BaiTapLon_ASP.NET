@@ -13,9 +13,44 @@ namespace webBanHang.Models
         }
 
         public virtual DbSet<Admin> Admins { get; set; }
+        public virtual DbSet<Catalogy> Catalogies { get; set; }
+        public virtual DbSet<ChiTietHoaDon> ChiTietHoaDons { get; set; }
+        public virtual DbSet<Customer> Customers { get; set; }
+        public virtual DbSet<HoaDon> HoaDons { get; set; }
+        public virtual DbSet<KhuyenMai> KhuyenMais { get; set; }
+        public virtual DbSet<Product> Products { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Catalogy>()
+                .HasMany(e => e.Products)
+                .WithOptional(e => e.Catalogy)
+                .WillCascadeOnDelete();
+
+            modelBuilder.Entity<Customer>()
+                .Property(e => e.RoleID)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Customer>()
+                .HasMany(e => e.HoaDons)
+                .WithOptional(e => e.Customer)
+                .WillCascadeOnDelete();
+
+            modelBuilder.Entity<Customer>()
+                .HasMany(e => e.Products)
+                .WithMany(e => e.Customers)
+                .Map(m => m.ToTable("GioHang").MapLeftKey("Phone").MapRightKey("ProID"));
+
+            modelBuilder.Entity<KhuyenMai>()
+                .HasMany(e => e.HoaDons)
+                .WithOptional(e => e.KhuyenMai)
+                .WillCascadeOnDelete();
+
+            modelBuilder.Entity<Product>()
+                .Property(e => e.ProImage)
+                .IsFixedLength()
+                .IsUnicode(false);
         }
     }
 }

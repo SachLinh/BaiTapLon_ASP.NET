@@ -1793,6 +1793,12 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Admin.cs" />
+    <Compile Include="Models\Catalogy.cs" />
+    <Compile Include="Models\ChiTietHoaDon.cs" />
+    <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\HoaDon.cs" />
+    <Compile Include="Models\KhuyenMai.cs" />
+    <Compile Include="Models\Product.cs" />
     <Compile Include="Models\WebBanHangNongSan.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
