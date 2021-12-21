@@ -76,13 +76,14 @@ create table HoaDon
   MaHD     nvarchar(10) primary key,
   Phone    nvarchar(10)   foreign key(Phone) references  Customer(Phone) on update cascade on delete cascade,
   ngayTao  date,
-  MaKhuyenMai  nvarchar(10)   foreign key(MaKhuyenMai)  references KhuyenMai(MaKhuyenMai) on update cascade on delete cascade  
+  MaKhuyenMai  nvarchar(10)   foreign key(MaKhuyenMai)  references KhuyenMai(MaKhuyenMai) on update cascade on delete cascade,
+  NoiNhanHang   nvarchar(200)
 )
 go
 insert into HoaDon
-values ('HD01', '011111','12/12/2021','KM01'),
-       ('HD02', '022222','12/12/2021','KM02'),
-	   ('HD03', '033333','12/12/2021','KM03')
+values ('HD01', '011111','12/12/2021','KM01',N'Bình Lãng, Tứ Kỳ, Hải Dương'),
+       ('HD02', '022222','12/12/2021','KM02',N'Miếu Đồng Cổ'),
+	   ('HD03', '033333','12/12/2021','KM03',N'Giếng Văn Trì')
 go
 select * from HoaDon
 --********************************
@@ -94,8 +95,7 @@ create table ChiTietHoaDon
 	ThanhTien   float,
 	primary key (MaHD, ProID)
 )
-insert into ChiTietHoaDon
-values('HD01', 'SP03',5,50000)
+
 --********************************
 ----- Hóa Đơn: Mã, ten khách Hàng, ngày, Mã KM.
 ----- Chi tiết hóa đơn: Mã HD, Mã Hàng, Số lượng Mua, Thanh Tien (SoLuong*Gia)
