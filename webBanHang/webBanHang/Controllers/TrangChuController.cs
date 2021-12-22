@@ -6,10 +6,14 @@ using System.Web.Mvc;
 
 namespace webBanHang.Controllers
 {
-    public class HomeController : Controller
+    public class TrangChuController : Controller
     {
-        // GET: Home
-        public ActionResult Index()
+        // GET: TrangChu
+        public ActionResult TrangChu()
+        {
+            return View();
+        }
+        public ActionResult Content()
         {
             return View();
         }

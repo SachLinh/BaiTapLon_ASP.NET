@@ -1782,13 +1782,24 @@
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
+    <Content Include="wwwroot\css\productDetail.css" />
+    <Content Include="wwwroot\css\style.css" />
+    <Content Include="wwwroot\images\anhBackGround.jpeg" />
+    <Content Include="wwwroot\images\logo1.png" />
+    <Content Include="wwwroot\images\logo2.png" />
+    <Content Include="wwwroot\images\logo3.png" />
+    <Content Include="wwwroot\images\RauCaiChip.jpeg" />
+    <Content Include="wwwroot\images\RauDen.jpeg" />
+    <Content Include="wwwroot\images\ThitSuon.jpeg" />
+    <Content Include="wwwroot\images\ThitSuon1.jpeg" />
+    <Content Include="wwwroot\images\tom.jpeg" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TrangChuController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -1983,13 +1994,15 @@
     <None Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\TrangChu\TrangChu.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+    <Content Include="wwwroot\css\style.css.map" />
+    <Content Include="wwwroot\css\style.scss" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
