@@ -38,11 +38,11 @@ create table Product
   ProName   nvarchar(30),
   Quantity   int,
   Price    float,
-  ProImage   char(10),
+  ProImage   char(50),
   DateOfImport   nvarchar(30),
   ProDescription  nvarchar(100)
 )
-go
+
 ---********************************
 create table KhuyenMai
 (
@@ -106,9 +106,39 @@ create table ChiTietHoaDon
 ----- Trigger update lại số lượng sản phẩm.
 ------------------
 insert into Product
-values('SP01', 'Loai1', N'Thịt bò', 30, 250000, 'h1.png', '11/12/2021', N'Thịt bò được nuôi sạch, quy trình làm thịt sạch sẽ, không chất bảo quản'),
-('SP02', 'Loai2', N'Táo', 30, 35000, 'h2.png', '11/12/2021', N'Quy trình bào quản chất lượng, an toàn, không chất kích thích, không chất bảo quản'),
-('SP03', 'Loai3', N'Rau cải', 30, 10000, 'h3.png', '11/12/2021', N'Rau sạch, không thuốc trừ sau, không chất kích thích')
+values('SP01', 'Loai1', N'Thịt bò', 30, 250000, 'ThitSuon.jpeg', '11/12/2021', N'Thịt bò được nuôi sạch, quy trình làm thịt sạch sẽ, không chất bảo quản'),
+('SP02', 'Loai3', N'Rau dền', 30, 35000, 'RauDen.jpeg', '11/12/2021', N'Quy trình bào quản chất lượng, an toàn, không chất kích thích, không chất bảo quản'),
+('SP03', 'Loai3', N'Rau cải', 30, 10000, 'RauCaiChip.jpeg', '11/12/2021', N'Rau sạch, không thuốc trừ sau, không chất kích thích')
+
+insert into Product
+values('SP04', 'Loai1', N'Bắp Bò', 50, 160000, 'BapBo.jpg', '12/12/2021', N'Thịt bò được nuôi sạch, quy trình làm thịt sạch sẽ, không chất bảo quản'),
+('SP05', 'Loai3', N'Bắp Cải', 10, 15000, 'BapCai.jpg', '12/12/2021', N'Quy trình bào quản chất lượng, an toàn, không chất kích thích, không chất bảo quản'),
+('SP06', 'Loai3', N'Bầu Sao', 30, 10000, 'BauSao.jpg', '11/12/2021', N'Rau sạch, không thuốc trừ sau, không chất kích thích'),
+('SP07', 'Loai3', N'Bí', 50, 16000, 'Bi.jpg', '12/12/2021', N'Rau sạch, không phun thuốc trừ sâu, không chất kích thích'),
+('SP08', 'Loai2', N'Bưởi Da Xanh', 15, 50000, 'BuoiDaXanh.jpg', '12/12/2021', N'Quy trình bào quản chất lượng, an toàn, không chất kích thích, không chất bảo quản'),
+('SP09', 'Loai1', N'Cá Chép', 30, 44000, 'CaChep.jpg', '11/12/2021', N'Thịt được nuôi sạch, quy trình làm thịt sạch sẽ, không chất bảo quản'),
+('SP10', 'Loai1', N'Cá Lăng', 5, 100000, 'CaLang.jpeg', '12/12/2021', N'Thịt được nuôi sạch, quy trình làm thịt sạch sẽ, không chất bảo quản'),
+('SP11', 'Loai2', N'Cam', 10, 15000, 'Cam.jpg', '12/12/2021', N'Quy trình bào quản chất lượng, an toàn, không chất kích thích, không chất bảo quản'),
+('SP12', 'Loai2', N'Cà rốt', 30, 10000, 'Carot.jpg', '11/12/2021',  N'Quy trình bào quản chất lượng, an toàn, không chất kích thích, không chất bảo quản'),
+('SP13', 'Loai2', N'Chuối Ngự', 50, 30000, 'ChuoiNgu.jpg', '12/12/2021',  N'Quy trình bào quản chất lượng, an toàn, không chất kích thích, không chất bảo quản'),
+('SP14', 'Loai3', N'Đậu Bắp', 10, 15000, 'DauBap.png', '12/12/2021', N'Quy trình bào quản chất lượng, an toàn, không chất kích thích, không chất bảo quản'),
+('SP15', 'Loai3', N'Đậu Trạch', 30, 10000, 'DauTrach.jpeg', '11/12/2021', N'Rau sạch, không thuốc trừ sau, không chất kích thích'),
+('SP16', 'Loai2', N'Dừa', 50, 56000, 'Dua.png', '12/12/2021',  N'Quy trình bào quản chất lượng, an toàn, không chất kích thích, không chất bảo quản'),
+('SP17', 'Loai2', N'Dưa Lê', 10, 15000, 'DuaLe.jpg', '12/12/2021', N'Quy trình bào quản chất lượng, an toàn, không chất kích thích, không chất bảo quản'),
+('SP18', 'Loai2', N'Dừa Xiêm', 30, 40000, 'DuaXiem.jpg', '11/12/2021',  N'Quy trình bào quản chất lượng, an toàn, không chất kích thích, không chất bảo quản'),
+('SP19', 'Loai1', N'Gà', 50, 160000, 'Ga.jpeg', '12/12/2021', N'Thịt được nuôi sạch, quy trình làm thịt sạch sẽ, không chất bảo quản'),
+('SP20', 'Loai1', N'Hàu Đá', 10, 150000, 'HauDa.jpeg', '12/12/2021', N'Thịt được nuôi sạch, quy trình làm thịt sạch sẽ, không chất bảo quản'),
+('SP21', 'Loai3', N'Khổ Qua', 30, 10000, 'KhoQua.png', '11/12/2021', N'Rau sạch, không thuốc trừ sau, không chất kích thích'),
+('SP22', 'Loai2', N'Măng Cầu', 50, 60000, 'MangCau.png', '12/12/2021',  N'Quy trình bào quản chất lượng, an toàn, không chất kích thích, không chất bảo quản'),
+('SP23', 'Loai2', N'Măng Tây', 10, 50000, 'MangTay.png', '12/12/2021', N'Quy trình bào quản chất lượng, an toàn, không chất kích thích, không chất bảo quản'),
+('SP24', 'Loai3', N'Mướp', 30, 10000, 'Muop.png', '11/12/2021', N'Rau sạch, không thuốc trừ sau, không chất kích thích'),
+('SP25', 'Loai3', N'Rau Ngót', 50, 16000, 'RauNgot.jpg', '12/12/2021', N'Rau sạch, không thuốc trừ sau, không chất kích thích'),
+('SP26', 'Loai1', N'Thăn Bò', 10, 150000, 'ThanBo.jpg', '12/12/2021', N'Thịt được nuôi sạch, quy trình làm thịt sạch sẽ, không chất bảo quản'),
+('SP27', 'Loai1', N'Trứng Gà Ta', 30, 33000, 'TrungGaTa.jpg', '11/12/2021', N'Thịt được nuôi sạch, quy trình làm thịt sạch sẽ, không chất bảo quản'),
+('SP28', 'Loai1', N'Trứng Cút', 20, 10000, 'TrungCut.jpg', '11/12/2021', N'Thịt được nuôi sạch, quy trình làm thịt sạch sẽ, không chất bảo quản'),
+('SP29', 'Loai1', N'Trứng Vịt', 30, 30000, 'TrungVit.jpg', '11/12/2021', N'Thịt được nuôi sạch, quy trình làm thịt sạch sẽ, không chất bảo quản')
+
+
 
 
 insert into Admin 
