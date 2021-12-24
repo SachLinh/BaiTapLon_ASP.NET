@@ -1829,6 +1829,7 @@
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Controllers\DangKyController.cs" />
     <Compile Include="Controllers\DangNhapController.cs" />
+    <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\TrangChuController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -1837,6 +1838,7 @@
     <Compile Include="Models\Catalogy.cs" />
     <Compile Include="Models\ChiTietHoaDon.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\gioHang.cs" />
     <Compile Include="Models\HoaDon.cs" />
     <Compile Include="Models\KhuyenMai.cs" />
     <Compile Include="Models\Product.cs" />
@@ -2028,6 +2030,9 @@
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\DangNhap\DangNhap.cshtml" />
     <Content Include="Views\DangKy\DangKy.cshtml" />
+    <Content Include="Views\GioHang\GioHang.cshtml" />
+    <Content Include="Views\GioHang\DatHang.cshtml" />
+    <Content Include="Views\GioHang\XacNhanDonHang.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -16,20 +16,24 @@ namespace webBanHang.Models
         }
 
         [Key]
-        [StringLength(10)]
-        public string MaHD { get; set; }
+        public int MaHD { get; set; }
 
         [StringLength(10)]
         public string Phone { get; set; }
 
         [Column(TypeName = "date")]
-        public DateTime? ngayTao { get; set; }
+        public DateTime? ngayDayHang { get; set; }
 
         [StringLength(10)]
         public string MaKhuyenMai { get; set; }
 
         [StringLength(200)]
         public string NoiNhanHang { get; set; }
+
+        public bool? ThanhToan { get; set; }
+
+        public bool? GiaoHang { get; set; }
+
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTietHoaDon> ChiTietHoaDons { get; set; }

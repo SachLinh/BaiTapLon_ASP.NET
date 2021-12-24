@@ -15,7 +15,7 @@ namespace webBanHang.Models
             Products = new HashSet<Product>();
         }
 
-        [StringLength(5)]
+        [StringLength(10)]
         public string ID { get; set; }
 
         [StringLength(20)]

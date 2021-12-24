@@ -15,10 +15,10 @@ go
 --********************************
 create table Customer
 (
-  Username  nvarchar(10),
+  Username  nvarchar(20),
   PassWord nvarchar(20),
   Phone   nvarchar(10) primary key,
-  Email   nvarchar(20),
+  Email   nvarchar(30),
   Address  nvarchar(50),
   RoleID   char(15)
 )
@@ -26,24 +26,24 @@ go
 --********************************
 create table Catalogy
 (
-  ID        nvarchar(5)   primary key,
+  ID        nvarchar(10)   primary key,
   CataName  nvarchar(20)
 )
 go
 ---********************************
+
 create table Product
 (
-  ProID   nvarchar(5)   primary key,
-  ID    nvarchar(5)   foreign key (ID) references Catalogy(ID) on update cascade on delete cascade,
+  ProID   nvarchar(10)   primary key,
+  ID    nvarchar(10)   foreign key (ID) references Catalogy(ID) on update cascade on delete cascade,
   ProName   nvarchar(30),
   Quantity   int,
-  Price    float,
-  ProImage   char(50),
+  Price    int,
+  ProImage    nvarchar(100),
   DateOfImport   nvarchar(30),
   ProDescription  nvarchar(100)
 )
-alter table Product
-alter column ProImage nvarchar(100)
+
 
 ---********************************
 create table KhuyenMai
@@ -56,27 +56,34 @@ insert into KhuyenMai
 values ('KM01', 0.2),
        ('KM02', 0.3),
 	   ('KM03', 0.5)
+insert into KhuyenMai
+values ('KM00', 0)
+
 
 select * from KhuyenMai
 --********************************
 
 --********************************
+
 create table HoaDon
 (
-  MaHD     nvarchar(10) primary key,
+  MaHD     int IDENTITY(1,1) primary key,
   Phone    nvarchar(10)   foreign key(Phone) references  Customer(Phone) on update cascade on delete cascade,
-  ngayTao  date,
+  ngayDayHang  date,
   MaKhuyenMai  nvarchar(10)   foreign key(MaKhuyenMai)  references KhuyenMai(MaKhuyenMai) on update cascade on delete cascade,
-  NoiNhanHang   nvarchar(200)
+  NoiNhanHang   nvarchar(200),
+  ThanhToan    bit,
+  GiaoHang   bit,
 )
+
 
 --********************************
 create table ChiTietHoaDon
 (
-    MaHD   nvarchar(10)   foreign key (MaHD) references HoaDon(MaHD) on update cascade on delete cascade,
-	ProID  nvarchar(5)   foreign key (ProID) references Product(ProID) on update cascade on delete cascade,
+    MaHD   int   foreign key (MaHD) references HoaDon(MaHD) on update cascade on delete cascade,
+	ProID  nvarchar(10)   foreign key (ProID) references Product(ProID) on update cascade on delete cascade,
 	SoLuongMua  int,
-	ThanhTien   float,
+	Price   int,
 	primary key (MaHD, ProID)
 )
 
@@ -142,11 +149,7 @@ values ('Loai1', N'Thịt Cá Dân Dã'),
        ('Loai2', N'Trái Cây'),
 	   ('Loai3', N'Rau Hữu Cơ')
 go
-insert into HoaDon
-values ('HD01', '011111','12/12/2021','KM01',N'Bình Lãng, Tứ Kỳ, Hải Dương'),
-       ('HD02', '022222','12/12/2021','KM02',N'Miếu Đồng Cổ'),
-	   ('HD03', '033333','12/12/2021','KM03',N'Giếng Văn Trì')
-go
+
 select * from HoaDon
 
 
@@ -221,37 +224,7 @@ go
 insert into ChiTietHoaDon 
 values ('HD02', 'SP02', 5,175 )
 --********************************** Thủ tục tính Thanh Tien trong ChiTietHoaDon
-go
-create proc ThanhTien_ChiTietHoaDon(@MaHD  nvarchar(10), @ProID  nvarchar(5), @SoLuongMua  int)
-as
-   begin
-       declare @DonGia   int
-	   select @DonGia = Price from Product where ProID = @ProID
-	   insert into ChiTietHoaDon
-	   values (@MaHD, @ProID, @SoLuongMua, @SoLuongMua*@DonGia)
-   end
-go
--- test
-exec ThanhTien_ChiTietHoaDon 'HD03', 'SP03', 2
-go
 --************************************ Hiển thị 3 mặt hàng đk mua nhiều nhất
-create view findProduct
-as
-(select COUNT(MaHD) as SoHoaDon, ProID 
- from ChiTietHoaDon
- Group by ChiTietHoaDon.ProID
- Having COUNT(MaHD) > 0
-) 
-go
-
-select * from findProduct
-go
-
-select TOP(3) ProID 
-from findProduct
-where SoHoaDon > 0
-order by SoHoaDon DESC 
-go
 
 
 

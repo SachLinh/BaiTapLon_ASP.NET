@@ -37,20 +37,10 @@ namespace webBanHang.Models
                 .WithOptional(e => e.Customer)
                 .WillCascadeOnDelete();
 
-            modelBuilder.Entity<Customer>()
-                .HasMany(e => e.Products)
-                .WithMany(e => e.Customers)
-                .Map(m => m.ToTable("GioHang").MapLeftKey("Phone").MapRightKey("ProID"));
-
             modelBuilder.Entity<KhuyenMai>()
                 .HasMany(e => e.HoaDons)
                 .WithOptional(e => e.KhuyenMai)
                 .WillCascadeOnDelete();
-
-            modelBuilder.Entity<Product>()
-                .Property(e => e.ProImage)
-                .IsFixedLength()
-                .IsUnicode(false);
         }
     }
 }

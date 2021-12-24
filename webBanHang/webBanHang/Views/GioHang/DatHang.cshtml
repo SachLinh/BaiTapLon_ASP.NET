@@ -1,0 +1,228 @@
+﻿@using webBanHang.Models
+@model List<gioHang> 
+@{
+    ViewBag.Title = "DatHang";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+
+    .gioHang {
+        width: 100%;
+    }
+
+    .gioHang_root {
+        width: 100%;
+    }
+
+        .gioHang_root h2 {
+            color: #2e00ac;
+            font-size: 30px;
+        }
+
+    .gioHang_Show {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+    }
+
+    .table th {
+        color: orangered
+    }
+
+    .gioHang_Show .table {
+        width: 100%;
+    }
+
+        .gioHang_Show .table thead {
+            font-size: 25px;
+            font-family: 'Times New Roman', Times, serif;
+            height: 50px;
+        }
+
+        .gioHang_Show .table tbody td {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 18px;
+            width: 130px;
+            text-align: center;
+            height: 100px;
+        }
+
+            .gioHang_Show .table tbody td .fas {
+                color: red;
+            }
+
+        .gioHang_Show .table thead,
+        thead tr,
+        thead tr th {
+            border: none;
+        }
+
+    .gioHang_Show .table,
+    .table tbody tr,
+    tbody td {
+        border: none;
+    }
+
+        .gioHang_Show .table tbody tr td {
+            border-bottom: 2px solid #eb9cdd;
+        }
+
+        .gioHang_Show .table tbody .total {
+            font-size: 25px;
+            color: red;
+        }
+
+    .gioHang_Show .TableSanPham {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .gioHang_Show .btnXoa {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+    }
+
+    .gioHang_Show .inputQuantity {
+        width: 50px;
+    }
+
+    .gioHang_Show .thSanPham {
+        text-align: center;
+    }
+
+    .tongTien {
+        color: #1e73be;
+        margin-left: 50px
+    }
+
+    .totolTr {
+        text-align: right;
+        font-weight: bold;
+        color: red
+    }
+
+    .xoaAll {
+        text-align: right;
+    }
+
+        .xoaAll > td {
+            color: blueviolet;
+            font-weight: bold;
+            font-size: 25px;
+        }
+</style>
+
+
+<div class="gioHang">
+    <div class="container">
+        <div class="gioHang_root">
+            <h2 style="text-align:center">Thông tin phiếu mua hàng</h2>
+            <div class="gioHang_Show">
+                <table class="table" border="1" cellpadding="0" cellspacing="0">
+                    <thead>
+                        <tr style="border-bottom: 1px solid black">
+                            <th class="thSanPham">Sản phẩm</th>
+                            <th>Giá</th>
+                            <th>Số lượng</th>
+                            <th>Thành tiền</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <div class="TableSanPham">
+                                        @*@Html.ActionLink("Xoa", "XoaGioHang", new { @sMaSP = item.sMaSP})*@
+
+                                        <a href="@Url.Action("XoaGioHang", "GioHang",new { @sMaSP = item.sMaSP} )">
+                                            <i class="fas fa-backspace"></i>
+                                        </a>
+
+                                        <img src="~/wwwroot/images/@item.sHinhAnh" width="100" style="margin-left:30px; margin-right:20px" />
+                                        @item.sTenSP
+                                    </div>
+                                </td>
+                                @using (Html.BeginForm("CapNhat", "GioHang", new { @sMaSP = item.sMaSP }))
+                                {
+                                    <td>@String.Format("{0:0,0}", item.fDonGia)</td>
+                                    <td>
+                                        @item.iSoLuong
+                                    </td>
+                                    <td>@String.Format("{0:0,0}", item.dThanhTien)</td>
+                                }
+
+                            </tr>
+                        }
+
+                    </tbody>
+                    <tr class="totolTr">
+                        <td colspan="1" align="left" style="text-align:left">
+                            <a href="@Url.Action("GioHang", "GioHang")">
+                                Quay Lại <i class="fas fa-undo"></i>
+                            </a>
+
+                        </td>
+                        <td colspan="2">Số lượng: @ViewBag.TongSoLuong</td>
+                        <td colspan="1" class="tongTien">Tổng tiền: @String.Format("{0:0,0}", ViewBag.TongTien)</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+@{ 
+    Customer cus = (Customer)Session["Customer"];
+}
+
+<div class="gioHang">
+    <div class="container">
+        <div class="gioHang_root">
+            <h2 style="text-align:center; color:brown">Thông tin đặt hàng</h2>
+            <table class="thongTin" border="1" align="center" cellpadding="0" cellspacing="0" style="font-size:15px; width:100%">
+                @using (Html.BeginForm())
+                {
+                    @Html.ValidationSummary(true)
+                    <tr style="text-align:center; color:blue; font-size:25px; font-family:'Times New Roman' ;font-weight:bold; height:40px">
+                        <td>Họ tên khách hàng</td>
+                        <td>Điện thoại</td>
+                        <td>Địa chỉ nhận hàng</td>
+                        <td>Ngày đặt</td>
+                        <td>Mã khuyến mại</td>
+                        
+                    </tr>
+                    <tr style="text-align:center; font-size:20px; height:40px">
+                        <td>@cus.Username</td>
+                        <td>@cus.Phone</td>
+                        <td>
+                            <input name="NoiNhanHang"
+                                   id="NoiNhanHang"
+                                   class="NoiNhanHang"
+                                   placeholder="Địa chỉ nhận hàng....." style="width:250px" type="text" />
+                        </td>
+                        <td>@DateTime.Now.ToShortDateString()</td>
+                        <td>
+                            <input name="MaKM"
+                                   id="MaKM"
+                                   class="MaKM"
+                                   placeholder="Ma khuyến mại....." style="width:50px" type="text" />
+                        </td>
+                       
+                    </tr>
+                    <tr style="height:40px; text-align:center">
+                        <td colspan="5">
+                            <input type="submit" value="XÁC NHẬN ĐẶT HÀNG" style="height:30px ;color:red; background-color:lightyellow" />
+                        </td>
+                    </tr>
+
+                }
+
+            </table>
+        </div>
+    </div>
+</div>
+

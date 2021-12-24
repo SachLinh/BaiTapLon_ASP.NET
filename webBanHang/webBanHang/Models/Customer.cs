@@ -13,10 +13,9 @@ namespace webBanHang.Models
         public Customer()
         {
             HoaDons = new HashSet<HoaDon>();
-            Products = new HashSet<Product>();
         }
 
-        [StringLength(10)]
+        [StringLength(20)]
         public string Username { get; set; }
 
         [StringLength(20)]
@@ -26,7 +25,7 @@ namespace webBanHang.Models
         [StringLength(10)]
         public string Phone { get; set; }
 
-        [StringLength(20)]
+        [StringLength(30)]
         public string Email { get; set; }
 
         [StringLength(50)]
@@ -37,8 +36,5 @@ namespace webBanHang.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HoaDon> HoaDons { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Product> Products { get; set; }
     }
 }

@@ -11,17 +11,17 @@ namespace webBanHang.Models
     {
         [Key]
         [Column(Order = 0)]
-        [StringLength(10)]
-        public string MaHD { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int MaHD { get; set; }
 
         [Key]
         [Column(Order = 1)]
-        [StringLength(5)]
+        [StringLength(10)]
         public string ProID { get; set; }
 
         public int? SoLuongMua { get; set; }
 
-        public double? ThanhTien { get; set; }
+        public int? Price { get; set; }
 
         public virtual Product Product { get; set; }
 

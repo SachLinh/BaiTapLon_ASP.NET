@@ -13,14 +13,13 @@ namespace webBanHang.Models
         public Product()
         {
             ChiTietHoaDons = new HashSet<ChiTietHoaDon>();
-            Customers = new HashSet<Customer>();
         }
 
         [Key]
-        [StringLength(5)]
+        [StringLength(10)]
         public string ProID { get; set; }
 
-        [StringLength(5)]
+        [StringLength(10)]
         public string ID { get; set; }
 
         [StringLength(30)]
@@ -28,9 +27,9 @@ namespace webBanHang.Models
 
         public int? Quantity { get; set; }
 
-        public double? Price { get; set; }
+        public int? Price { get; set; }
 
-        [StringLength(10)]
+        [StringLength(100)]
         public string ProImage { get; set; }
 
         [StringLength(30)]
@@ -43,8 +42,5 @@ namespace webBanHang.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTietHoaDon> ChiTietHoaDons { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Customer> Customers { get; set; }
     }
 }
