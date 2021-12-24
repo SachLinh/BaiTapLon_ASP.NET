@@ -1,0 +1,536 @@
+﻿/**
+ * /* General
+ *
+ * @format
+ */
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+/* Product */
+.product {
+    padding: 30px 0;
+    display: flex;
+    justify-items: flex-start;
+}
+
+    /*  */
+    /* Sidebar */
+    .product .sidebar {
+        width: 300px;
+        padding: 0 10px;
+    }
+
+/* Categories */
+.sidebar .categories {
+    background-color: #ececec;
+    border-bottom: 1px solid #e5e5e5;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+    .sidebar .categories span {
+        background-color: #014686;
+        color: #fff;
+        width: 100%;
+        display: block;
+        line-height: 40px;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .sidebar .categories ul {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+        .sidebar .categories ul li {
+            border-bottom: 1px dashed;
+            padding: 7px;
+            font-size: 14px;
+            font-family: 'Open Sans';
+        }
+
+            .sidebar .categories ul li:hover {
+                background-color: #d8d8d8;
+            }
+
+            .sidebar .categories ul li a {
+                color: #302f2f;
+                display: block;
+                width: 100%;
+            }
+
+            .sidebar .categories ul li:last-child {
+                border-bottom: none;
+            }
+
+            .sidebar .categories ul li i {
+                margin-right: 10px;
+            }
+
+/* Filter by price */
+.filter-price {
+    border-top: 1px solid #c2c0c0;
+    padding-bottom: 20px;
+    padding-top: 10px;
+}
+
+    .filter-price #title {
+        margin-bottom: 20px;
+        margin-top: 10px;
+        font-weight: bold;
+        font-size: 18px;
+        display: block;
+        color: #014686;
+    }
+
+    .filter-price i {
+        font-size: 12px;
+        color: #5a5858;
+    }
+
+    .filter-price input[type="text"] {
+        width: 46%;
+        line-height: 20px;
+    }
+
+    .filter-price button {
+        margin: 15px 0;
+        padding: 10px 15px;
+        background-color: #a70909;
+        width: 98%;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 1px 1px 5px #302f2f;
+    }
+
+/* New product */
+.sidebar .new-product {
+    border-top: 1px solid #c2c0c0;
+}
+
+    .sidebar .new-product > span {
+        color: #014686;
+        font-size: 18px;
+        font-weight: bold;
+        display: block;
+        padding: 20px 0;
+    }
+
+.new-product .product-item {
+    margin: 5px 0;
+    box-sizing: border-box;
+}
+
+    .new-product .product-item::after {
+        clear: both;
+        content: '';
+        display: block;
+    }
+
+    .new-product .product-item .img {
+        position: relative;
+        z-index: 0;
+    }
+
+.product-item .img:hover .quick-view-btn {
+    display: block;
+}
+
+.quick-view-btn a {
+    color: #fff;
+}
+
+.new-product .quick-view-btn {
+    background-color: #05315a;
+    color: #fff;
+    text-align: center;
+    padding: 5px;
+    width: 100%;
+    position: absolute;
+    bottom: 35px;
+    display: none;
+    z-index: 1;
+}
+
+.quick-view-btn:hover {
+    background-color: #0a5ead;
+    cursor: pointer;
+}
+
+.new-product .product-item .info {
+    padding-left: 5px;
+}
+
+.product-item {
+    position: relative;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 1px 1px 5px #302f2f;
+}
+
+    .product-item:hover {
+        background-color: #c2c0c0;
+    }
+
+    .product-item .product-name {
+        color: #014686;
+        font-weight: bold;
+        margin-bottom: 8px;
+    }
+
+    .product-item .new-price {
+        color: #a70909;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .product-item .product-price {
+        padding: 5px 0 0 10px;
+        columns: rgb(39, 37, 37);
+        text-decoration: line-through;
+    }
+
+    .product-item .small {
+        font-size: 12px;
+    }
+
+.add-cart-btn {
+    background-color: #c51515;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 3px 5px;
+}
+
+    .add-cart-btn:hover {
+        background-color: #ff4141;
+        cursor: pointer;
+    }
+
+.col-3 {
+    width: calc(100% / 12 * 5);
+}
+
+.col-9 {
+    width: calc(100% -100% / 12 * 5 - 7px);
+}
+
+/*  */
+/* Main Content */
+.product .main-content {
+    width: calc(100% - 300px);
+    padding-left: 20px;
+}
+
+    /* Filter */
+    .product .main-content .filter {
+        padding: 10px 0;
+        border-bottom: 1px solid #c2c0c0;
+    }
+
+        .product .main-content .filter::after {
+            clear: both;
+            content: '';
+            display: block;
+        }
+
+        .product .main-content .filter div > span {
+            padding-right: 5px;
+        }
+
+        .product .main-content .filter i {
+            color: #014686;
+            font-size: 24px;
+        }
+
+input[type="checkbox"] {
+    display: none;
+}
+
+.product .main-content .filter div > a {
+    padding-right: 10px;
+}
+
+.product .main-content .filter .sort-filter {
+    margin-left: 60px;
+}
+
+.product .main-content .filter select {
+    height: 30px;
+    padding: 0 10px;
+}
+
+
+/* Product list */
+/* Product item */
+.product .main-content .product-list {
+    margin: 20px 0;
+}
+
+.product-list .product-item {
+    float: left;
+    width: 23.5%;
+    height: 250px;
+    margin: 5px;
+    text-align: center;
+}
+
+    .product-list .product-item .img {
+        position: relative;
+        z-index: 0;
+    }
+
+        .product-list .product-item .img img {
+            width: 100%;
+            height: 150px;
+        }
+
+    .product-list .product-item .quick-view-btn {
+        background-color: #05315a;
+        color: #fff;
+        text-align: center;
+        padding: 8px 15px;
+        border: none;
+        border-radius: 5px;
+        position: absolute;
+        bottom: 30%;
+        left: 25%;
+        margin: auto;
+        display: none;
+        z-index: 1;
+    }
+
+        .product-list .product-item .quick-view-btn:hover {
+            background-color: #0a5ead;
+            cursor: pointer;
+        }
+
+.product-list::after {
+    display: block;
+    content: '';
+    clear: both;
+}
+
+.product-list .product-item .new-price {
+    font-weight: normal;
+}
+
+.paged-list {
+    padding-top: 10px;
+    text-align: center;
+}
+
+    .paged-list a, .paged-list span {
+        padding: 5px;
+        color: #fc01b1
+    }
+/* Product listview */
+.product-list .list {
+    width: 100%;
+    text-align: left;
+    border-bottom: 1px solid #ddeaff;
+    margin-top: 20px;
+    font-size: 18px;
+    box-shadow: 2px 2px 10px #302f2f;
+}
+
+    .product-list .list input {
+        font-size: 18px;
+        width: 150px;
+        padding: 10px;
+    }
+
+    .product-list .list:first-child {
+        margin-top: 5px;
+    }
+
+    .product-list .list .img {
+        width: 30%;
+        height: 100%;
+        float: left;
+    }
+
+        .product-list .list .img img {
+            height: 100%;
+        }
+
+    .product-list .list .info {
+        float: left;
+        padding-top: 25px;
+        width: 70%;
+    }
+
+        .product-list .list .info > div {
+            padding-bottom: 10px;
+            padding-left: 30px;
+        }
+
+            .product-list .list .info > div > span {
+                font-weight: bold;
+            }
+
+        .product-list .list .info .product-name {
+            font-size: 22px;
+        }
+
+        .product-list .list .info .new-price {
+            color: #000;
+        }
+
+    .product-list .list .quick-view-btn {
+        bottom: 40%;
+        left: 30%;
+    }
+
+    .product-list .list::after {
+        display: block;
+        content: "";
+        clear: both;
+    }
+
+/*  */
+/* Quick view */
+
+.hidden-view, .blur {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.blur {
+    background-color: #000;
+    opacity: 0.6;
+}
+
+.hidden-view .quick-view {
+    position: absolute;
+    top: 10%;
+    left: 25%;
+    width: 50%;
+    height: 500px;
+    background-color: #ddeaff;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 3px 3px 15px rgb(39, 39, 39);
+}
+
+.quick-view .header {
+    width: 100%;
+    height: 50px;
+    background-color: #2600d1;
+    border: none;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    position: relative;
+}
+
+.hidden-view .title {
+    width: 100%;
+    color: rgb(231, 233, 253);
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 50px;
+}
+
+.hidden-view .close {
+    width: 50px;
+    text-align: right;
+    line-height: 50px;
+    font-size: 32px;
+    color: #fdf5ef;
+    position: absolute;
+    top: 0;
+    right: 10px;
+}
+
+    .hidden-view .close:hover {
+        cursor: pointer;
+    }
+
+.main-info {
+    padding: 50px 50px 20px 30px;
+    height: 450px;
+    overflow: hidden;
+}
+
+.quick-view .img {
+    width: 400px;
+    height: 300px;
+    padding: 0 50px;
+}
+
+.quick-view .info {
+    width: calc(100% - 400px - 30px);
+}
+
+    .quick-view .info input, .quick-view .info > div {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+        .quick-view .info input[type="number"] {
+            width: 50px;
+        }
+
+    .quick-view .info .name {
+        font-size: 28px;
+        font-weight: bold;
+        color: #f30707;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .quick-view .info > div > span {
+        font-weight: bold;
+        display: inline-block;
+        width: 50%;
+    }
+
+.currency {
+    font-size: 14px;
+    font-weight: bold;
+    display: inline-block;
+    vertical-align: top;
+}
+
+/*  */
+/* Animations */
+
+.hidden-view.ng-hide-add {
+    opacity: 1;
+}
+
+    .hidden-view.ng-hide-add.ng-hide-add-active {
+        opacity: 0;
+        transition: 0.5s linear all;
+    }
+
+.hidden-view.ng-hide-remove {
+    opacity: 0;
+    transition: 0.5s linear all;
+}
+
+    .hidden-view.ng-hide-remove.ng-hide-remove-active {
+        opacity: 1;
+    }
+
+.content.ng-enter {
+    opacity: 0;
+    transition: 0.5s;
+}
+
+    .content.ng-enter.ng-enter-active {
+        opacity: 1;
+    }

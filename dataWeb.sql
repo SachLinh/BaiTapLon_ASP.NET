@@ -1,6 +1,9 @@
 ﻿use master
 go
 
+drop database WebBanHangNongSan
+go
+
 create database WebBanHangNongSan
 go
 

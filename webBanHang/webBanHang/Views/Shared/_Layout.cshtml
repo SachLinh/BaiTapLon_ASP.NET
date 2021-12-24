@@ -1,16 +1,34 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
+<<<<<<< Updated upstream
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <script src="~/Scripts/modernizr-2.8.3.js"></script>
+=======
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NÔNG SẢN XANH</title>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+    <link rel="stylesheet" href="~/wwwroot/css/style.css" />
+    <link rel="stylesheet" href="~/wwwroot//css/productDetail.css" />
+    <link rel="stylesheet" href="~/wwwroot/css/product.css" />
+
+    <script type="text/javascript" src="~/wwwroot/js/angular.min.js"></script>
+    <script type="text/javascript" src="~/wwwroot/js/angular-animate.min.js"></script>
+    <script type="text/javascript" src="~/wwwroot/js/app.js"></script>
+
+>>>>>>> Stashed changes
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
+<<<<<<< Updated upstream
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
@@ -21,10 +39,52 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
+=======
+            <div class="header_root">
+                <div class="header_top">
+                    <a href="#"><h1>NÔNG SẢN XANH</h1></a>
+                    <div class="header_TimKiem">
+                        <select>
+                            <option>All</option>
+                            <option>Sản phẩm</option>
+                        </select>
+                        <input placeholder="Search..." />
+                    </div>
+                    <div class="header_LogIn">
+                        <a href="#!/dangNhap">
+                            <i class="fas fa-user-alt"></i>
+                        </a>
+
+                        <a href="">
+                            <i class="fas fa-cart-plus"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header_Menu">
+        <div class="container">
+            <div class="header_Menu_root">
+                <ul class="header_List">
+                    <li class="header_item">
+                        @Html.ActionLink("Trang chủ", "TrangChu", "TrangChu")
+                    </li>
+                    <li class="header_item">
+                        @Html.ActionLink("Giới thiệu", "TrangChu", "TrangChu")
+                    </li>
+                    <li class="header_item">
+                        @Html.ActionLink("Liên hệ", "TrangChu", "TrangChu")
+                    </li>
+                    <li class="header_item">
+                        @Html.ActionLink("Sản phẩm", "Index", "Product")
+                    </li>
+>>>>>>> Stashed changes
                 </ul>
             </div>
         </div>
     </div>
+<<<<<<< Updated upstream
 
     <div class="container body-content">
         @RenderBody()
@@ -36,5 +96,37 @@
 
     <script src="~/Scripts/jquery-3.4.1.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
+=======
+    <!-- Content -->
+    <!-- ********************************************* -->
+    <div class="content">
+        @RenderBody()
+    </div>
+    <!-- Footer -->
+    <!-- ********************************************* -->
+    <div class="footer">
+        <div class="container">
+            <div class="footer_root">
+                <div class="footer_LienHe">
+                    <h3>LIÊN HỆ</h3>
+                    <h3>CÔNG TY CỔ PHẦN ACEGROUP</h3>
+                    <p>
+                        Địa chỉ trụ sở: 441/42C Điện Biên Phủ, Phường 25, Quận Bình
+                        Thạnh, TP HCM
+                    </p>
+                    <p>Website: nongsanxanhvnn.com</p>
+                </div>
+                <div class="footer_Tags">
+                    <h3>TAGS</h3>
+                    <a href="#">Chim câu</a>
+                    <a href="#">Rau sạch</a>
+                    <a href="#">Tôm rảo</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+>>>>>>> Stashed changes
 </body>
 </html>

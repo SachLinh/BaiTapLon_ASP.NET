@@ -1782,13 +1782,64 @@
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
+<<<<<<< Updated upstream
+=======
+    <Content Include="wwwroot\js\angular-animate.min.js" />
+    <Content Include="wwwroot\js\angular.min.js" />
+    <Content Include="wwwroot\js\app.js" />
+    <Content Include="wwwroot\css\product.css" />
+    <Content Include="wwwroot\css\productDetail.css" />
+    <Content Include="wwwroot\css\style.css" />
+    <Content Include="wwwroot\images\anhBackGround.jpeg" />
+    <Content Include="wwwroot\images\BapBo.jpg" />
+    <Content Include="wwwroot\images\BapCai.jpg" />
+    <Content Include="wwwroot\images\BauSao.jpg" />
+    <Content Include="wwwroot\images\Bi.jpg" />
+    <Content Include="wwwroot\images\BuoiDaXanh.jpg" />
+    <Content Include="wwwroot\images\CaChep.jpg" />
+    <Content Include="wwwroot\images\CaLang.jpeg" />
+    <Content Include="wwwroot\images\Cam.jpg" />
+    <Content Include="wwwroot\images\Carot.jpg" />
+    <Content Include="wwwroot\images\ChuoiNgu.jpg" />
+    <Content Include="wwwroot\images\DauBap.png" />
+    <Content Include="wwwroot\images\DauTrach.jpeg" />
+    <Content Include="wwwroot\images\Dua.png" />
+    <Content Include="wwwroot\images\DuaLe.jpg" />
+    <Content Include="wwwroot\images\DuaXiem.jpg" />
+    <Content Include="wwwroot\images\Ga.jpeg" />
+    <Content Include="wwwroot\images\HauDa.jpeg" />
+    <Content Include="wwwroot\images\KhoQua.png" />
+    <Content Include="wwwroot\images\logo1.png" />
+    <Content Include="wwwroot\images\logo2.png" />
+    <Content Include="wwwroot\images\logo3.png" />
+    <Content Include="wwwroot\images\MangCau.png" />
+    <Content Include="wwwroot\images\MangTay.png" />
+    <Content Include="wwwroot\images\Muop.png" />
+    <Content Include="wwwroot\images\RauCaiChip.jpeg" />
+    <Content Include="wwwroot\images\RauDen.jpeg" />
+    <Content Include="wwwroot\images\RauNgot.jpg" />
+    <Content Include="wwwroot\images\TaoAmbrosia.jpg" />
+    <Content Include="wwwroot\images\ThanBo.jpg" />
+    <Content Include="wwwroot\images\ThitSuon.jpeg" />
+    <Content Include="wwwroot\images\ThitSuon1.jpeg" />
+    <Content Include="wwwroot\images\TiaTo.jpg" />
+    <Content Include="wwwroot\images\tom.jpeg" />
+    <Content Include="wwwroot\images\TrungCut.jpg" />
+    <Content Include="wwwroot\images\TrungGaTa.jpg" />
+    <Content Include="wwwroot\images\TrungVit.jpg" />
+>>>>>>> Stashed changes
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
+<<<<<<< Updated upstream
     <Compile Include="Controllers\HomeController.cs" />
+=======
+    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\TrangChuController.cs" />
+>>>>>>> Stashed changes
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -1983,7 +2034,13 @@
     <None Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+<<<<<<< Updated upstream
     <Content Include="Views\Home\Index.cshtml" />
+=======
+    <Content Include="Views\TrangChu\TrangChu.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\Product\Detail.cshtml" />
+>>>>>>> Stashed changes
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

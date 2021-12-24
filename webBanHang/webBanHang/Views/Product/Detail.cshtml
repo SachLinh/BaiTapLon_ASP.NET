@@ -1,0 +1,143 @@
+﻿
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div ng-controller="productCtrl">
+    <div class="product-detail">
+        <div class="product-detail-title">
+            <div class="img"></div>
+            <div class="title">
+                <a href="index.html">HOME</a> &ensp;
+                <a href="sanPham.html"><span>/&ensp; SẢN PHẨM</span></a>&ensp;
+                <span>/&ensp; TÊN DANH MỤC SẢN PHẨM</span>
+            </div>
+        </div>
+        <div class="product-detail-main">
+            <div class="row">
+                <div class="product-sidebar">
+                    <div style="color: #555555; font-weight: 400; padding-bottom: 20px; font-size: 18px">BROWSE</div>
+                    <a href="#!/sanPham" style="color: #555555; font-size: 16px; padding: 6px 0; display: inline-block;">Sản Phẩm</a>
+                    <div class="catagogy" style="border-left: 1px solid #ececec">
+                        <span style="padding-left: 20px; font-size: 16px; display: block"><a href="#" style="color: #555555">Rau hữu cơ</a></span><br />
+                        <span style="padding-left: 20px; font-size: 16px; display: block">
+                            <a href="#" style="color: #555555">Thịt cá dân dã</a>
+                        </span><br />
+                        <span style="padding-left: 20px; font-size: 16px; display: block"><a href="#" style="color: #555555">Trái cây</a></span>
+                    </div>
+                    <div style="border-top: 1px solid #ececec; color: #555555; padding: 5px 0;">
+                        Uncategoried
+                    </div>
+                </div>
+                <div class="product-content">
+                    <div class="row">
+                        <div class="product-img">
+                            <img src="~/wwwroot/images/ThitSuon1.jpeg" alt="Ảnh" width="375" height="375">
+                            <button class="zoom-btn">Zoom out</button>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-name">
+                                Thịt - Sườn Quế
+                            </div>
+                            <div class="product-price">
+                                <span class="currency"><u>đ</u></span>275,000
+                            </div>
+                            <form class="product-cart">
+                                <div class="quantity">
+                                    <input type="button" value="-">
+                                    <input type="number" inputmode="numeric" min="1" value="1" step="1" size="4">
+                                    <input type="button" value="+">
+                                </div>
+                                <button type="submit" class="add_to_cart_btn">ADD TO CART</button>
+                            </form>
+                            <div class="product-catagory">
+                                <span style="font-size: 14px;">Category:</span> Thịt cá dân dã
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-footer">
+                        <div class="tab-content">
+                            <ul class="tab">
+                                <li><a href="#">DESCRIPTION</a></li>
+                                <li><a href="#">REVIEW (0)</a></li>
+                            </ul>
+                            <div class="detail-content">
+                                Noi dung chi tiet o day
+                            </div>
+                        </div>
+                        <div class="product-related">
+                            <span class="related">RELATED PRODUCTS</span>
+                            <div class="product-list">
+                                <div class="product-item">
+                                    <div class="product-img">
+                                        <img src="~/wwwroot/images/ThitSuon1.jpeg" alt="Meat" width="180" height="180" />
+                                        <div class="quick-view">Quick View</div>
+                                    </div>
+                                    <div class="product-item-detail">
+                                        <span class="category">Thịt cá dân dã</span><br />
+                                        <span class="name">Thịt quế - sườn</span><br />
+                                        <span class="currency"><u>đ</u></span>275,000
+                                    </div>
+                                </div>
+                                <div class="product-item">
+                                    <div class="product-img">
+                                        <img src="~/wwwroot/images/tom.jpeg" alt="Meat" width="180" height="180" />
+                                        <span class="quick-view" ng-click="quickView()">Quick View</span>
+                                    </div>
+                                    <div class="product-item-detail">
+                                        <span class="category">Thịt cá dân dã</span><br />
+                                        <span class="name">Rau dền</span><br />
+                                        <span class="currency"><u>đ</u></span>275,000
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- Quick view  -->
+    <div class="hidden-view" ng-show="hiddenView">
+        <div class="blur" ng-click="closeQuickView()"></div>
+        <div class="quick-view">
+            Header
+            <div class="header">
+                <div class="title">THÔNG TIN SẢN PHẨM</div>
+                <div class="close">
+                    <i class="fas fa-window-close" ng-click="closeQuickView()"></i>
+                </div>
+            </div>
+            Main info
+            <div class="main-info">
+                <div class="img left">
+                    <img src="{{productQuickView.image}}" width="100%" height="100%">
+                </div>
+                <div class="info left">
+                    <div class="name">{{productQuickView.name}}</div>
+                    <div class="brand">
+                        <span>Hãng</span> {{productQuickView.Brand}}
+                    </div>
+                    <div class="capacity">
+                        <span>Dung tích</span> {{productQuickView.dungTich}}cc
+                    </div>
+                    <div class="price">
+                        <span>Giá</span> {{productQuickView.Price | number}}<div class="currency"><u>đ</u></div>
+                    </div>
+                    <div class="quantity" ng-init="quantity = 1">
+                        <span><label for="quantity">Số lượng</label></span>
+                        <input type="number" name="quantity" ng-model="quantity" value="1" step="1" min="1">
+                    </div>
+                    <div align="center">
+                        <input type="button" ng-click="add_cart(productQuickView)" value="Add cart" class="add-cart-btn">
+                    </div>
+                </div>
+            </div>
+            End main info
+        </div>
+    </div>
+    <!-- End Quick view  -->
+</div>

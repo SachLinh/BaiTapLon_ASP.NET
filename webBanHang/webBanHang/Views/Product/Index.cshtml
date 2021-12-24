@@ -1,0 +1,164 @@
+﻿@model IEnumerable<webBanHang.Models.Product>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="product" ng-controller="productCtrl">
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <!-- Categories -->
+        <div class="categories">
+            <span>DANH MỤC SẢN PHẨM</span>
+            <ul>
+                <li><a ng-click="all()"><i class="fa fa-angle-right"></i>TẤT CẢ</a></li>
+                <li ng-repeat="item in brands">
+                    <a ng-click="getBrand(item)"><i class="fa fa-angle-right"></i>{{item | uppercase}}</a>
+                </li>
+            </ul>
+        </div>
+        <!-- End categories -->
+        <!-- Filter price -->
+        <div class="filter-price">
+            <span id="title">LỌC THEO GIÁ</span>
+            <div id="container">
+                <input type="text" ng-model="fromPrice" placeholder="Từ">
+                <i class="fas fa-minus"></i>
+                <input type="text" ng-model="toPrice" placeholder="Đến">
+            </div>
+            <div id="container">
+                <button ng-click="filterByPrice()">Áp dụng</button>
+            </div>
+        </div>
+        <!-- End filter price -->
+        <!-- New products -->
+        <div class="new-product">
+            <span>SẢN PHẨM MỚI</span>
+            <div>
+                <div class="product-item" ng-repeat="item in newProducts">
+                    <div class="left col-3 img">
+                        <a href="#!/productDetail/{{item.id}}">
+                            <img src="{{item.image}}" width="100%" height="100px" />
+                        </a>
+                        <div class="quick-view-btn" ng-click="quickView(item)">Xem nhanh</div>
+                    </div>
+                    <div class="left col-9 info">
+                        <div class="product-name">{{item.name}}</div>
+                        <div class="new-price">
+                            {{getNewPrice(item.Price) | number}}<span class="currency small"><u>đ</u></span>
+                        </div>
+                        <div class="product-price">
+                            {{item.Price | number}}<span class="currency small"><u>đ</u></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End new products -->
+    </div>
+    <!-- End Sidebar -->
+    <!-- Main-content -->
+    <div class="main-content" ng-init="viewMode = true">
+        <!-- Filter -->
+        <div class="filter">
+            <div class="left col-2">
+                <label ng-show="viewMode" ng-click="changeViewMode()">
+                    <input type="checkbox" ng-model="viewMode">
+                    <i class="fa fa-th-large"></i>
+                </label>
+                <label ng-show="!viewMode" ng-click="changeViewMode()">
+                    <input type="checkbox" ng-model="viewMode">
+                    <i class="fa fa-th-list"></i>
+                </label>
+            </div>
+            <div class="right col-6">
+                <span ng-show="(count > 0)">Đang có {{count}} sản phẩm</span>
+                <span ng-hide="(count > 0)">Không tìm thấy sản phẩm nào</span>
+                <span class="sort-filter">
+                    <select ng-model="sort">
+                        <option selected value="">Mặc định</option>
+                        <option value="name">A &rarr; Z</option>
+                        <option value="-name">Z &rarr; A</option>
+                        <option value="Price">Giá tăng dần</option>
+                        <option value="-Price">Giá giảm dần</option>
+                    </select>
+                </span>
+            </div>
+        </div> <!-- End filter-->
+        <!-- Product list -->
+        <div class="product-list">
+        @*@foreach()
+            {
+
+            }*@
+            <div class="product-item" ng-class="{list: !viewMode}" ng-repeat="item in products | filter: brand | orderBy: sort | limitTo: pageSize: begin">
+                <div class="img">
+                    <a href="#!/productDetail/{{item.id}}">
+                        <img src="{{item.image}}">
+                    </a>
+                    <div class="quick-view-btn" ng-click="quickView(item)">Xem nhanh</div>
+                </div>
+                <div class="info">
+                    <div class="product-name">{{item.name}}</div>
+                    <div class="brand" ng-show="!viewMode">
+                        <span>Hãng:</span> {{item.Brand}}
+                    </div>
+                    <div class="capacity" ng-show="!viewMode">
+                        <span>Dung tích:</span> {{item.dungTich}}cc
+                    </div>
+                    <div class="new-price">
+                        <span ng-show="!viewMode">Giá:</span> {{item.Price | number}}<span class="currency" ng-class="{small: viewMode}"><u>đ</u></span>
+                    </div>
+                    <div>
+                        <input type="button" ng-click="add_cart(item)" value="Add cart" class="add-cart-btn">
+                    </div>
+                </div>
+            </div>
+        </div> <!-- End product list -->
+    </div>
+    <!-- End main content-->
+    <!-- Quick view  -->
+    <div class="hidden-view" ng-show="hiddenView">
+        <div class="blur" ng-click="closeQuickView()"></div>
+        <div class="quick-view">
+     Header 
+    <div class="header">
+        <div class="title">THÔNG TIN SẢN PHẨM</div>
+        <div class="close">
+            <i class="fas fa-window-close" ng-click="closeQuickView()"></i>
+        </div>
+    </div>
+     Main info 
+    <div class="main-info">
+        <div class="img left">
+            <img src="{{productQuickView.image}}" width="100%" height="100%">
+        </div>
+        <div class="info left">
+            <div class="name">{{productQuickView.name}}</div>
+            <div class="brand">
+                <span>Hãng</span> {{productQuickView.Brand}}
+            </div>
+            <div class="capacity">
+                <span>Dung tích</span> {{productQuickView.dungTich}}cc
+            </div>
+            <div class="price">
+                <span>Giá</span> {{productQuickView.Price | number}}<div class="currency"><u>đ</u></div>
+            </div>
+            <div class="quantity" ng-init="quantity = 1">
+                <span><label for="quantity">Số lượng</label></span>
+                <input type="number" name="quantity" ng-model="quantity" value="1" step="1" min="1">
+            </div>
+            <div align="center">
+                <input type="button" ng-click="add_cart(productQuickView)" value="Add cart" class="add-cart-btn">
+            </div>
+        </div>
+    </div>
+     End main info 
+    </div>
+    </div>
+    <!-- End Quick view  -->
+</div>
+
+
