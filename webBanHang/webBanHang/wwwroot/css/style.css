@@ -1,4 +1,4 @@
-/** @format */
+﻿/** @format */
 a {
   text-decoration: none;
 }
@@ -329,5 +329,131 @@ body {
   background-color: #4040e9;
   border: 1px solid #4040e9;
 }
+/*Đăng nhập đăng kí*/
+.dangNhap {
+    width: 100%;
+}
 
+    .dangNhap h2 {
+        color: #4e4d4d;
+        font-weight: 400;
+    }
+
+    .dangNhap h4 {
+        color: #555454;
+    }
+
+        .dangNhap h4 a {
+            color: #5f5f5f;
+            text-decoration: underline;
+        }
+
+.dangNhap_root {
+    width: 100%;
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    padding: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 50px;
+}
+
+.dangNhap_FormInput {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.dangNhap_Form {
+    width: 40%;
+    font-size: 20px;
+}
+
+    .dangNhap_Form .sao {
+        color: red;
+    }
+
+    .dangNhap_Form .quenMatKhau {
+        font-size: 15px;
+        display: inline-block;
+        margin-bottom: 10px;
+    }
+
+    .dangNhap_Form .btnDangNhap {
+        width: 100%;
+        border: none;
+        background-color: #fcda1a;
+        font-size: 20px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        font-family: 'Times New Roman', Times, serif;
+        border-radius: 7px;
+    }
+
+    .dangNhap_Form input {
+        width: calc(100% - 20px);
+        padding: 10px;
+        border: 1px solid #e2dada;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        outline: none;
+        font-size: 15px;
+    }
+
+    .dangNhap_Form .dangNhapThem {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+        align-items: center;
+    }
+
+        .dangNhap_Form .dangNhapThem p {
+            color: #5f5f5f;
+        }
+
+        .dangNhap_Form .dangNhapThem .faceGoogle {
+            width: 60%;
+            display: flex;
+            flex-direction: row;
+            align-self: center;
+            justify-content: space-around;
+        }
+
+            .dangNhap_Form .dangNhapThem .faceGoogle .face {
+                width: 120px;
+                background-color: #5e5ef0;
+                border-radius: 5px;
+                padding: 5px;
+            }
+
+                .dangNhap_Form .dangNhapThem .faceGoogle .face i,
+                .dangNhap_Form .dangNhapThem .faceGoogle .face span {
+                    color: white;
+                }
+
+                .dangNhap_Form .dangNhapThem .faceGoogle .face i {
+                    margin-right: 2px;
+                    padding-right: 3px;
+                    border-right: 1px solid black;
+                }
+
+            .dangNhap_Form .dangNhapThem .faceGoogle .google {
+                width: 120px;
+                background-color: #e41d27;
+                border-radius: 5px;
+                padding: 5px;
+            }
+
+                .dangNhap_Form .dangNhapThem .faceGoogle .google i,
+                .dangNhap_Form .dangNhapThem .faceGoogle .google span {
+                    color: white;
+                }
+
+                .dangNhap_Form .dangNhapThem .faceGoogle .google i {
+                    margin-right: 2px;
+                    padding-right: 3px;
+                    border-right: 1px solid black;
+                }
 /*# sourceMappingURL=style.css.map */

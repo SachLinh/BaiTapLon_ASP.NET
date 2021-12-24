@@ -42,6 +42,8 @@ create table Product
   DateOfImport   nvarchar(30),
   ProDescription  nvarchar(100)
 )
+alter table Product
+alter column ProImage nvarchar(100)
 
 ---********************************
 create table KhuyenMai
@@ -57,19 +59,7 @@ values ('KM01', 0.2),
 
 select * from KhuyenMai
 --********************************
-create table GioHang
-(
-   Phone   nvarchar(10) foreign key(Phone)  references Customer(Phone) on update cascade on delete cascade,
-   ProID   nvarchar(5) foreign key(ProID)  references Product(ProID) on update cascade on delete cascade,
-   primary key (Phone,ProID)
-)
 
-insert into GioHang
-values('011111', 'SP01'),
-      ('022222', 'SP02'),
-	  ('033333', 'SP03')
-select * from GioHang
-go
 --********************************
 create table HoaDon
 (
@@ -79,13 +69,7 @@ create table HoaDon
   MaKhuyenMai  nvarchar(10)   foreign key(MaKhuyenMai)  references KhuyenMai(MaKhuyenMai) on update cascade on delete cascade,
   NoiNhanHang   nvarchar(200)
 )
-go
-insert into HoaDon
-values ('HD01', '011111','12/12/2021','KM01',N'Bình Lãng, Tứ Kỳ, Hải Dương'),
-       ('HD02', '022222','12/12/2021','KM02',N'Miếu Đồng Cổ'),
-	   ('HD03', '033333','12/12/2021','KM03',N'Giếng Văn Trì')
-go
-select * from HoaDon
+
 --********************************
 create table ChiTietHoaDon
 (
@@ -106,21 +90,19 @@ create table ChiTietHoaDon
 ----- Trigger update lại số lượng sản phẩm.
 ------------------
 insert into Product
-values('SP01', 'Loai1', N'Thịt bò', 30, 250000, 'ThitSuon.jpeg', '11/12/2021', N'Thịt bò được nuôi sạch, quy trình làm thịt sạch sẽ, không chất bảo quản'),
+values
+('SP01', 'Loai1', N'Thịt bò', 30, 250000, 'ThitSuon.jpeg', '11/12/2021', N'Thịt bò được nuôi sạch, quy trình làm thịt sạch sẽ, không chất bảo quản'),
 ('SP02', 'Loai3', N'Rau dền', 30, 35000, 'RauDen.jpeg', '11/12/2021', N'Quy trình bào quản chất lượng, an toàn, không chất kích thích, không chất bảo quản'),
-('SP03', 'Loai3', N'Rau cải', 30, 10000, 'RauCaiChip.jpeg', '11/12/2021', N'Rau sạch, không thuốc trừ sau, không chất kích thích')
+('SP03', 'Loai3', N'Rau cải chíp', 30, 10000, 'RauCaiChip.jpeg', '11/12/2021', N'Rau sạch, không thuốc trừ sau, không chất kích thích')
 
 insert into Product
 values('SP04', 'Loai1', N'Bắp Bò', 50, 160000, 'BapBo.jpg', '12/12/2021', N'Thịt bò được nuôi sạch, quy trình làm thịt sạch sẽ, không chất bảo quản'),
 ('SP05', 'Loai3', N'Bắp Cải', 10, 15000, 'BapCai.jpg', '12/12/2021', N'Quy trình bào quản chất lượng, an toàn, không chất kích thích, không chất bảo quản'),
 ('SP06', 'Loai3', N'Bầu Sao', 30, 10000, 'BauSao.jpg', '11/12/2021', N'Rau sạch, không thuốc trừ sau, không chất kích thích'),
 ('SP07', 'Loai3', N'Bí', 50, 16000, 'Bi.jpg', '12/12/2021', N'Rau sạch, không phun thuốc trừ sâu, không chất kích thích'),
-('SP08', 'Loai2', N'Bưởi Da Xanh', 15, 50000, 'BuoiDaXanh.jpg', '12/12/2021', N'Quy trình bào quản chất lượng, an toàn, không chất kích thích, không chất bảo quản'),
 ('SP09', 'Loai1', N'Cá Chép', 30, 44000, 'CaChep.jpg', '11/12/2021', N'Thịt được nuôi sạch, quy trình làm thịt sạch sẽ, không chất bảo quản'),
-('SP10', 'Loai1', N'Cá Lăng', 5, 100000, 'CaLang.jpeg', '12/12/2021', N'Thịt được nuôi sạch, quy trình làm thịt sạch sẽ, không chất bảo quản'),
 ('SP11', 'Loai2', N'Cam', 10, 15000, 'Cam.jpg', '12/12/2021', N'Quy trình bào quản chất lượng, an toàn, không chất kích thích, không chất bảo quản'),
 ('SP12', 'Loai2', N'Cà rốt', 30, 10000, 'Carot.jpg', '11/12/2021',  N'Quy trình bào quản chất lượng, an toàn, không chất kích thích, không chất bảo quản'),
-('SP13', 'Loai2', N'Chuối Ngự', 50, 30000, 'ChuoiNgu.jpg', '12/12/2021',  N'Quy trình bào quản chất lượng, an toàn, không chất kích thích, không chất bảo quản'),
 ('SP14', 'Loai3', N'Đậu Bắp', 10, 15000, 'DauBap.png', '12/12/2021', N'Quy trình bào quản chất lượng, an toàn, không chất kích thích, không chất bảo quản'),
 ('SP15', 'Loai3', N'Đậu Trạch', 30, 10000, 'DauTrach.jpeg', '11/12/2021', N'Rau sạch, không thuốc trừ sau, không chất kích thích'),
 ('SP16', 'Loai2', N'Dừa', 50, 56000, 'Dua.png', '12/12/2021',  N'Quy trình bào quản chất lượng, an toàn, không chất kích thích, không chất bảo quản'),
@@ -139,7 +121,10 @@ values('SP04', 'Loai1', N'Bắp Bò', 50, 160000, 'BapBo.jpg', '12/12/2021', N'T
 ('SP29', 'Loai1', N'Trứng Vịt', 30, 30000, 'TrungVit.jpg', '11/12/2021', N'Thịt được nuôi sạch, quy trình làm thịt sạch sẽ, không chất bảo quản')
 
 
+insert into Product
+values('SP10', 'Loai1', N'Cá Lăng', 5, 100000, 'CaLang.jpeg', '12/12/2021', N'Thịt được nuôi sạch, quy trình làm thịt sạch sẽ, không chất bảo quản')
 
+go
 
 insert into Admin 
 values('admin1', 'abc123'),
@@ -156,7 +141,13 @@ insert into Catalogy
 values ('Loai1', N'Thịt Cá Dân Dã'),
        ('Loai2', N'Trái Cây'),
 	   ('Loai3', N'Rau Hữu Cơ')
-
+go
+insert into HoaDon
+values ('HD01', '011111','12/12/2021','KM01',N'Bình Lãng, Tứ Kỳ, Hải Dương'),
+       ('HD02', '022222','12/12/2021','KM02',N'Miếu Đồng Cổ'),
+	   ('HD03', '033333','12/12/2021','KM03',N'Giếng Văn Trì')
+go
+select * from HoaDon
 
 
 
@@ -168,8 +159,6 @@ go
 select * from Catalogy
 go
 select * from Product
-go
-select * from GioHang
 go
 select * from KhuyenMai
 go 
@@ -262,7 +251,6 @@ select TOP(3) ProID
 from findProduct
 where SoHoaDon > 0
 order by SoHoaDon DESC 
-
 go
 
 

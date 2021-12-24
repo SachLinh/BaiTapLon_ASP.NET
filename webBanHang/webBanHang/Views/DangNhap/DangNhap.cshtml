@@ -1,0 +1,67 @@
+﻿
+@{
+    ViewBag.Title = "DangNhap";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="dangNhap">
+    <div class="container">
+        <div class="dangNhap_root">
+            <h2>ĐĂNG NHẬP TÀI KHOẢN</h2>
+            <h4>
+                Bạn chưa có tài khoản? <a href="/DangKy/DangKy">
+                    Đăng kí tài khoản
+                </a>
+            </h4>
+
+            @using (Html.BeginForm())
+            {
+                @Html.ValidationSummary(true)
+        <div class="dangNhap_FormInput">
+            <div class="dangNhap_Form">
+                <label for="email">Email<span class="sao">*</span></label><br />
+                <input name="email"
+                       id="email"
+                       class="dangNhap_email"
+                       placeholder="Email....." />
+                <br /> @ViewData["Loi1"]
+                <br />
+
+                <label for="matKhau">Mật khẩu<span class="sao">*</span></label><br />
+                <input name="matKhau"
+                       id="matKhau"
+                       type="password"
+                       class="dangNhap_MatKhau"
+                       placeholder="Mật khẩu....." /><br />
+                @ViewData["Loi2"]
+                <br />
+            <h4 style="color:red"> @ViewBag.ThongBao</h4>
+                <span class="quenMatKhau">
+                    Quên mật khẩu? Nhấn vào
+                    <a href="#" class="day">đây</a>
+                </span><br />              
+                    <button type="submit" class="btnDangNhap">
+                        Đăng nhập
+                    </button>
+                <div class="dangNhapThem">
+                    <p>Hoặc đăng nhập bằng</p>
+                    <div class="faceGoogle">
+                        <div class="face">
+                            <a href="https://www.facebook.com/">
+                                <i class="fab fa-facebook-square"></i><span>Facebook</span>
+                            </a>
+                        </div>
+                        <div class="google">
+                            <a href="https://www.google.com/">
+                                <i class="fab fa-google-plus-g"></i><span>Google</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+                    }
+
+                </div>
+            
+    </div>
+</div>

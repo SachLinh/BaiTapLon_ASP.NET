@@ -1,0 +1,72 @@
+﻿
+@{
+    ViewBag.Title = "DangKy";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="dangNhap">
+    <div class="container">
+        <div class="dangNhap_root">
+            <h2>ĐĂNG KÝ TÀI KHOẢN</h2>
+            <h4>Bạn đã có tài khoản? <a href="/DangNhap/DangNhap">Đăng nhập</a></h4>
+            @using (@Html.BeginForm())
+            {
+                @Html.ValidationSummary(true)
+                <div class="dangNhap_FormInput">
+                    <div class="dangNhap_Form">
+                        <label for="hoTen">Họ tên<span class="sao">*</span></label><br />
+                        <input name="hoTen"
+                               id="hoTen"
+                               class="hoTen"
+                               placeholder="Họ tên....." /><br /> @ViewData["Loi1"] <br />
+                            <label for="email">Email<span class="sao">*</span></label><br />
+                            <input name="email"
+                                   id="email"
+                                   class="dangNhap_email"
+                                   placeholder="Email....." /><br /> @ViewData["Loi2"] <br />
+                                <label for="sdt">Số điện thoại<span class="sao">*</span></label><br />
+                                <input name="sdt"
+                                       id="sdt"
+                                       class="dangNhap_sdt"
+                                       placeholder="SDT....." /><br /> @ViewData["Loi7"] <br />
+                                    <label for="matKhau">Mật khẩu<span class="sao">*</span></label><br />
+                                    <input name="matKhau"
+                                           id="matKhau"
+                                           type="password"
+                                           class="dangNhap_MatKhau"
+                                           placeholder="Mật khẩu....." /><br /> @ViewData["Loi3"] <br />
+                                        <label for="matKhau2">Nhập lại mật khẩu<span class="sao">*</span></label><br />
+                                        <input name="matKhau2"
+                                               id="matKhau2"
+                                               type="password"
+                                               class="dangNhap_MatKhau2"
+                                               placeholder="Mật khẩu....." /><br /> @ViewData["Loi4"] @ViewData["Loi6"] <br />
+                                            <label for="diaChi">Địa chỉ<span class="sao">*</span></label><br />
+                                            <input name="diaChi"
+                                                   id="diaChi"
+                                                   type="text"
+                                                   class="dangNhap_DiaChi"
+                                                   placeholder="Đại chỉ....." /><br /> @ViewData["Loi5"] <br />
+                                                <button type="submit" class="btnDangNhap">Đăng ký</button>
+                                                <div class="dangNhapThem">
+                                                    <p>Hoặc đăng nhập bằng</p>
+                                                    <div class="faceGoogle">
+                                                        <div class="face">
+                                                            <a href="https://www.facebook.com/">
+                                                                <i class="fab fa-facebook-square"></i><span>Facebook</span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="google">
+                                                            <a href="https://www.google.com/">
+                                                                <i class="fab fa-google-plus-g"></i><span>Google</span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    </div>
+                                }
+        </div>
+    </div>
+</div>
+
