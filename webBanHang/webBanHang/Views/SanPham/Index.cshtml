@@ -1,0 +1,189 @@
+﻿@using webBanHang.Models;
+@using PagedList.Mvc
+@model PagedList.IPagedList<Product>
+@*@model IEnumerable<Product>*@
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var category = (List<Catalogy>)ViewBag.Category;
+    var newProducs = (List<Product>)ViewBag.NewProducts;
+}
+
+
+<div class="product" ng-controller="productCtrl">
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <!-- Categories -->
+        <div class="categories">
+            <span>DANH MỤC SẢN PHẨM</span>
+            <ul>
+                <li><a href="/SanPham/Index"><i class="fa fa-angle-right"></i>TẤT CẢ</a></li>
+                @foreach (var item in category)
+                {
+                    <li>
+                        <a href="@Url.Action("Index", new { cataId = @item.ID })">
+                            <i class="fa fa-angle-right"></i>
+                            @(String.Format(item.CataName).ToUpper())
+                        </a>
+                    </li>
+                }
+            </ul>
+        </div>
+        <!-- End categories -->
+        <!-- Filter price -->
+        <div class="filter-price">
+            <span id="title">LỌC THEO GIÁ</span>
+            <div>
+                <input type="text" placeholder="Từ">
+                <i class="fas fa-minus"></i>
+                <input type="text" placeholder="Đến">
+            </div>
+            <div>
+                <button>Áp dụng</button>
+            </div>
+        </div>
+        <!-- End filter price -->
+        <!-- New products -->
+        <div class="new-product">
+            <span>SẢN PHẨM MỚI</span>
+            <div>
+                @foreach (var item in newProducs)
+                {
+                    <div class="product-item">
+                        <div class="left col-3 img">
+                            <a href="/SanPham/Detail?id=@item.ProID">
+                                <img src="~/wwwroot/images/@item.ProImage" />
+                            </a>
+                            <div class="quick-view-btn" ng-click="quickView(item)">Xem nhanh</div>
+                        </div>
+                        <div class="left col-9 info">
+                            <div class="product-name">@item.ProName</div>
+                            <div class="brand">@item.Catalogy.CataName</div>
+                            <div class="new-price">
+                                @{ var price = Convert.ToDecimal(@item.Price).ToString("#,#");}@price
+                                <span class="currency small"><u>đ</u></span>
+                            </div>
+                            @*<div class="product-price">
+                                    {{item.Price | number}}<span class="currency small"><u>đ</u></span>
+                                </div>*@
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+        <!-- End new products -->
+    </div>
+    <!-- End Sidebar -->
+    <!-- Main-content -->
+    <div class="main-content" ng-init="viewMode = true">
+        <!-- Filter -->
+        <div class="filter">
+            <div class="left col-2">
+                <label ng-show="viewMode" ng-click="changeViewMode()">
+                    <input type="checkbox" ng-model="viewMode">
+                    <i class="fa fa-th-large"></i>
+                </label>
+                <label ng-show="!viewMode" ng-click="changeViewMode()">
+                    <input type="checkbox" ng-model="viewMode">
+                    <i class="fa fa-th-list"></i>
+                </label>
+            </div>
+            <div class="right col-6">
+                <span>Đang có @ViewBag.ProductCount sản phẩm</span>
+                <span class="sort-filter">
+                    <select>
+                        <option selected value="">Mặc định</option>
+                        <option value="name">A &rarr; Z</option>
+                        <option value="-name">Z &rarr; A</option>
+                        <option value="Price">Giá tăng dần</option>
+                        <option value="-Price">Giá giảm dần</option>
+                    </select>
+                </span>
+            </div>
+        </div> <!-- End filter-->
+        <!-- Product list -->
+        <div class="product-list">
+            @foreach (var item in Model)
+            {
+                <div class="product-item" ng-class="{list: !viewMode}">
+                    <div class="img">
+                        <a href="/SanPham/Detail?id=@item.ProID">
+
+                            <img src="~/wwwroot/images/@item.ProImage">
+                        </a>
+                        <div class="quick-view-btn" ng-click="quickView()">Xem nhanh</div>
+                    </div>
+                    <div class="info">
+                        <div class="product-name">@item.ProName</div>
+                        <div class="brand">@item.Catalogy.CataName</div>
+                        <div class="new-price">
+                            <span ng-show="!viewMode">Giá:</span>
+                            @{ var price = Convert.ToDecimal(@item.Price).ToString("#,#");}@price
+                            <span class="currency" ng-class="{small: viewMode}"><u>đ</u></span>
+                        </div>
+                        <div class="product-description" ng-show="!viewMode">
+                            Mô tả: @item.ProDescription
+                        </div>
+                        <div ng-class="{'add-cart': viewMode, 'add-cart-large': !viewMode}">
+                            <a href="@Url.Action("ThemGioHang", "Giohang", new { @sMaSP = item.ProID, @strURL = Request.Url.ToString() })" class="add-cart-btn">
+                                Đặt mua 
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div> <!-- End product list -->
+        @if (Model.PageCount > 1)
+        {
+            <div class="paged-list">
+                @Html.PagedListPager(Model, page => Url.Action("Index", new
+                {
+                    page,
+                    cataId = ViewBag.CurrentCategory
+                }))
+            </div>
+        }
+    </div>
+    <!-- End main content-->
+    <!-- Quick view  -->
+    <!--<div class="hidden-view" ng-show="hiddenView">
+        <div class="blur" ng-click="closeQuickView()"></div>
+        <div class="quick-view">-->
+    <!-- Header -->
+    <!--<div class="header">
+        <div class="title">THÔNG TIN SẢN PHẨM</div>
+        <div class="close">
+            <i class="fas fa-window-close" ng-click="closeQuickView()"></i>
+        </div>
+    </div>-->
+    <!-- Main info -->
+    <!--<div class="main-info">
+        <div class="img left">
+            <img src="{{productQuickView.image}}" width="100%" height="100%">
+        </div>
+        <div class="info left">
+            <div class="name">{{productQuickView.name}}</div>
+            <div class="brand">
+                <span>Hãng</span> {{productQuickView.Brand}}
+            </div>
+            <div class="capacity">
+                <span>Dung tích</span> {{productQuickView.dungTich}}cc
+            </div>
+            <div class="price">
+                <span>Giá</span> {{productQuickView.Price | number}}<div class="currency"><u>đ</u></div>
+            </div>
+            <div class="quantity">
+                <span><label for="quantity">Số lượng</label></span>
+                <input type="number" name="quantity" value="1" step="1" min="1">
+            </div>
+            <div align="center">
+                <input type="button" ng-click="add_cart(productQuickView)" value="Add cart" class="add-cart-btn">
+            </div>
+        </div>
+    </div>-->
+    <!-- End main info -->
+    <!--</div>
+    </div>-->
+    <!-- End Quick view  -->
+</div>

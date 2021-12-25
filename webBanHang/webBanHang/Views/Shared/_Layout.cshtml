@@ -5,10 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NÔNG SẢN XANH</title>
+    @*CSS*@
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
     <link rel="stylesheet" href="~/wwwroot/css/style.css" />
     <link rel="stylesheet" href="~/wwwroot//css/productDetail.css" />
+    <link rel="stylesheet" href="~/wwwroot//css/product.css" />
+
+    @*JS*@
+    <script src="~/wwwroot/js/angular.min.js"></script>
+    <script src="~/wwwroot/js/angular-animate.min.js"></script>
+    <script src="~/wwwroot/js/app.js"></script>
 </head>
 <body ng-app="myApp">
     <!-- header -->
@@ -51,10 +58,7 @@
                         @Html.ActionLink("Liên hệ", "TrangChu", "TrangChu")
                     </li>
                     <li class="header_item">
-                        @Html.ActionLink("Sản phẩm", "TrangChu", "TrangChu")
-                    </li>
-                    <li class="header_item">
-                        @Html.ActionLink("Chi tiết sản phẩm", "TrangChu", "TrangChu")
+                        @Html.ActionLink("Sản phẩm", "Index", "SanPham")
                     </li>
                 </ul>
                 <div class="header_Time">
@@ -67,7 +71,7 @@
     <!-- Content -->
     <!-- ********************************************* -->
     <div class="content">
-        @RenderBody();
+        @RenderBody()
     </div>
     <!-- Footer -->
     <!-- ********************************************* -->

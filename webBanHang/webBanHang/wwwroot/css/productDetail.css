@@ -1,158 +1,169 @@
 
 /* Chi tiet san pham*/
 .product-detail {
-  position: relative;
-}
-.product-detail-title {
-  height: 70px;
-  background-image: url("../images/ThitSuon1.jpeg");
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-position: 50% 50%;
-}
-.product-detail-title .img {
-  background-color: #000;
-  opacity: 0.2;
-  height: 70px;
-}
-.product-detail-title .title {
-  position: absolute;
-  top: 0;
-  left: 0;
-  line-height: 70px;
-  font-size: 18px;
-  padding-left: 60px;
-  color: #fff;
-}
-.product-detail-title .title a {
-  color: #fff;
-  text-decoration: none;
-}
-.product-detail-main {
-  padding: 50px 0;
-}
-.product-detail-main .row {
-  max-width: 1100px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-  display: flex;
-  align-items: flex-start;
-}
-.product-detail-main .product-sidebar {
-  width: 20%;
-  padding: 0 30px 0 30px;
-}
-.product-detail-main .product-content {
-  width: 69%;
-  padding: 0 30px 0 30px;
-  border-left: 1px solid #ececec;
-}
-.product-detail-main .catagogy {
-  margin: 0 0 10px 4px;
-}
-.product-detail-main .product-img {
-  position: relative;
-  width: 50%;
-}
-.product-detail-main .zoom-btn {
-  position: absolute;
-  bottom: 20px;
-  left: 0;
-}
-.product-detail-main .product-info {
-  width: 50%;
-}
-.product-name {
-  font-weight: bold;
-  font-size: 26px;
-  color: #555555;
-  margin-bottom: 20px;
-}
-.product-price {
-  font-weight: bold;
-  font-size: 26px;
-  padding: 10px 0;
-}
-.product-cart {
-  margin-bottom: 10px;
-}
-.product-cart button {
-  height: 41px;
-}
-.quantity {
-  margin-right: 10px;
-  display: inline-flex;
-}
-.quantity input[type="number"] {
-  width: 20px;
-  height: 35px;
-  text-align: center;
-}
-.product-price .currency {
-  font-size: 12px;
-  vertical-align: top;
-}
-.add_to_cart_btn {
-  font-weight: bold;
-  padding: 5px 15px;
-  color: #fff;
-  background-color: #007784;
-}
-.product-catagory {
-  border-top: 1px solid #ececec;
-  padding: 5px 0;
-}
-.product-footer {
-  border-top: 1px solid #ececec;
-}
-.product-footer .tab {
-  display: flex;
-  justify-content: flex-start;
-  margin-left: -45px;
-}
-.product-footer a {
-  padding: 0 5px;
-  color: #000;
-}
-.detail-content {
-  color: #555555;
-}
-.product-related {
-  border-top: 1px solid #ececec;
-  padding: 10px 0 50px;
-  margin-top: 30px;
-}
-.product-related .related {
-  font-weight: bold;
-  font-size: 20px;
-}
-.product-list {
-  display: flex;
-  justify-content: flex-start;
-  margin-top: 30px;
-}
-.product-item {
-  padding: 0 5px;
-  position: relative;
-}
-.product-img {
-  width: 200px;
-}
-.product-item:hover .quick-view {
-  display: block;
-}
-.quick-view {
-  display: none;
-  position: absolute;
-  bottom: 3px;
-  width: 180px;
-  padding: 10px;
-  color: #fff;
-  background-color: #11519b;
-}
-.product-related .currency {
-  font-size: 12px;
-  vertical-align: top;
+    position: relative;
 }
 
+.product-detail-title {
+    height: 70px;
+    background-image: url("../images/ThitSuon1.jpeg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: 50% 50%;
+}
+
+    .product-detail-title .img {
+        background-color: #000;
+        opacity: 0.2;
+        height: 70px;
+    }
+
+    .product-detail-title .title {
+        position: absolute;
+        top: 0;
+        left: 0;
+        line-height: 70px;
+        font-size: 18px;
+        padding-left: 60px;
+        color: #fff;
+    }
+
+        .product-detail-title .title a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+.product-detail-main {
+    padding: 50px 0;
+}
+
+    .product-detail-main .row {
+        max-width: 1100px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        display: flex;
+        align-items: flex-start;
+    }
+
+    .product-detail-main .product-sidebar {
+        width: 20%;
+        padding: 0 30px 0 30px;
+    }
+
+    .product-detail-main .product-content {
+        width: 69%;
+        padding: 0 30px 0 30px;
+        border-left: 1px solid #ececec;
+    }
+
+    .product-detail-main .catagogy {
+        margin: 0 0 10px 4px;
+    }
+
+    .product-detail-main .product-img {
+        position: relative;
+        width: 50%;
+    }
+
+    .product-detail-main .zoom-btn {
+        position: absolute;
+        bottom: 20px;
+        left: 0;
+    }
+
+    .product-detail-main .product-info {
+        width: 50%;
+    }
+
+        .product-detail-main .product-info .product-name {
+            font-weight: bold;
+            font-size: 26px;
+            color: #555555;
+            margin-bottom: 20px;
+        }
+
+        .product-detail-main .product-info .product-price {
+            font-weight: bold;
+            font-size: 26px;
+            padding: 10px 0;
+        }
+
+        .product-detail-main .product-info .product-cart {
+            margin-bottom: 10px;
+        }
+
+            .product-detail-main .product-info .product-cart .add-cart-btn {
+                padding: 10px 30px;
+            }
+
+            .product-detail-main .product-info .quantity {
+                margin-right: 10px;
+                display: inline-flex;
+            }
+
+            .product-detail-main .product-info .quantity input[type="number"] {
+                width: 20px;
+                height: 35px;
+                text-align: center;
+            }
+
+        .product-detail-main .product-info .product-price .currency {
+            font-size: 12px;
+            vertical-align: top;
+        }
+
+        .product-detail-main .product-info .add_to_cart_btn {
+            font-weight: bold;
+            padding: 5px 15px;
+            color: #fff;
+            background-color: #007784;
+        }
+
+        .product-detail-main .product-info .product-catagory {
+            border-top: 1px solid #ececec;
+            padding: 5px 0;
+        }
+
+.product-footer {
+    border-top: 1px solid #ececec;
+}
+
+    .product-footer .tab {
+        display: flex;
+        justify-content: flex-start;
+        margin-left: -45px;
+    }
+
+    .product-footer a {
+        color: #000;
+    }
+
+.detail-content {
+    color: #555555;
+}
+
+.product-related {
+    border-top: 1px solid #ececec;
+    padding: 10px 0 50px;
+    margin-top: 30px;
+}
+
+    .product-related .product-list {
+        padding-top: 10px;
+    }
+
+    .product-related .quick-view {
+        display: none;
+        position: absolute;
+        bottom: 3px;
+        width: 180px;
+        padding: 10px;
+        color: #fff;
+        background-color: #11519b;
+    }
+
+    .product-related .currency {
+        font-size: 12px;
+        vertical-align: top;
+    }

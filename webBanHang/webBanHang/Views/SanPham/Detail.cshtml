@@ -1,0 +1,107 @@
+﻿@using webBanHang.Models
+@model Product
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var category = (List<Catalogy>)ViewBag.Category;
+    var relatedProducts = (List<Product>)ViewBag.RelatedProducts;
+}
+
+<div class="product-detail">
+    <div class="product-detail-title">
+        <div class="img"></div>
+        <div class="title">
+            <a href="/TrangChu/TrangChu">HOME</a> &ensp;
+            <a href="/SanPham/Index"><span>/&ensp; SẢN PHẨM</span></a>&ensp;
+            <span>/&ensp; @String.Format(Model.Catalogy.CataName).ToUpper()</span>
+        </div>
+    </div>
+    <div class="product-detail-main">
+        <div class="row">
+            <div class="product-sidebar">
+                <div style="color: #555555; font-weight: 400; padding-bottom: 20px; font-size: 18px">BROWSE</div>
+                <a href="/SanPham/Index" style="color: #555555; font-size: 16px; padding: 6px 0; display: inline-block;">Sản Phẩm</a>
+
+                <div class="catagogy" style="border-left: 1px solid #ececec">
+                    @foreach (var item in category)
+                    {
+                        <div style="padding: 5px 0 5px 20px; font-size: 16px; display: block">
+                            <a href="/SanPham/Index?cataId=@item.ID" style="color: #555555">
+                                @item.CataName
+                            </a>
+                        </div>
+                    }
+                </div>
+
+                <div style="border-top: 1px solid #ececec; color: #555555; padding: 5px 0;">
+                    Uncategoried
+                </div>
+            </div>
+            <div class="product-content">
+                <div class="row">
+                    <div class="product-img">
+                        <img src="~/wwwroot/images/@Model.ProImage" alt="Ảnh" width="375" height="375">
+                        <button class="zoom-btn">Zoom out</button>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">
+                            @Model.ProName
+                        </div>
+                        <div class="product-price">
+                            <span class="currency"><u>đ</u></span>
+                            @{ var price = Convert.ToDecimal(@Model.Price).ToString("#,#");}@price
+                        </div>
+                        <form class="product-cart">
+                            <div class="quantity">
+                                <input type="button" value="-">
+                                <input type="number" inputmode="numeric" min="1" value="1" step="1" size="4">
+                                <input type="button" value="+">
+                            </div>
+                            <a href="@Url.Action("ThemGioHang", "Giohang", new { @sMaSP = Model.ProID, @strURL = Request.Url.ToString() })" class="add-cart-btn">
+                                Đặt mua
+                            </a>
+                        </form>
+                        <div class="product-catagory">
+                            <span style="font-size: 14px;">Category:</span> @Model.Catalogy.CataName
+                        </div>
+                    </div>
+                </div>
+                <div class="product-footer">
+                    <div class="tab-content">
+                        <ul class="tab">
+                            <li><a href="#" style="padding-left: 5px;">DESCRIPTION</a></li>
+                        </ul>
+                        <div class="detail-content">
+                            @Model.ProDescription
+                        </div>
+                    </div>
+                    <div class="product-related">
+                        <span class="related">RELATED PRODUCTS</span>
+                        <div class="product-list">
+                            @foreach (var item in relatedProducts)
+                            {
+                                <div class="product-item">
+                                    <div class="img">
+                                        <a href="/SanPham/Detail?id=@item.ProID">
+                                            <img src="~/wwwroot/images/@item.ProImage">
+                                        </a>
+                                        <div class="quick-view-btn" ng-click="quickView()">Xem nhanh</div>
+                                    </div>
+                                    <div class="info">
+                                        <div class="product-name">@item.ProName</div>
+                                        <div class="brand">@item.Catalogy.CataName</div>
+                                        <div class="new-price">
+                                            <span class="currency"><u>đ</u></span>
+                                            @{ price = Convert.ToDecimal(@Model.Price).ToString("#,#");}@price
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
