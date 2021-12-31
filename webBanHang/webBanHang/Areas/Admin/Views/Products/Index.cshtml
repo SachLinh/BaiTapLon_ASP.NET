@@ -1,0 +1,94 @@
+﻿@model PagedList.IPagedList<webBanHang.Models.Product>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Product</h2>
+
+<p>
+    @Html.ActionLink("Thêm mới sản phẩm", "Create")
+</p>
+@using (Html.BeginForm())
+{
+    <p>
+        Tim theo tên: @Html.TextBox("searchString")
+        <input type="submit" value="Tim kiem" />
+    </p>
+}
+<table class="table">
+    <tr style="color:red">
+        <th>
+            @Html.ActionLink("ID SP", "Index", new {sortOrder = ViewBag.SapTheoID})
+        </th>
+        <th>
+            @Html.ActionLink("Loại SP", "Index", new { sortOrder = ViewBag.SapTheoLoaiSP })
+        </th>
+        <th>
+            @Html.ActionLink("Tên SP", "Index", new { sortOrder = ViewBag.SapTheoTen })
+        </th>
+        <th>
+           Số lượng
+        </th>
+        <th>
+            @Html.ActionLink("Giá", "Index", new { sortOrder = ViewBag.SapTheoGia })
+        </th>
+        <th>
+            Hỉnh ảnh
+        </th>
+        <th>
+           Ngày nhập
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr style="color:black">
+            <td>
+                @Html.DisplayFor(modelItem => item.ProID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Catalogy.CataName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @{
+                    string ImagePath = "~/wwwroot/images/" + item.ProImage;
+                }
+                <img src="@Url.Content(ImagePath)" width="150" class="img-thumbnail" />
+                <br />
+                @Html.DisplayFor(modelItem => item.ProImage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfImport)
+            </td>
+
+            <td>
+                @Html.ActionLink("Chỉnh sửa", "Edit", new { id = item.ProID }) |
+                @Html.ActionLink("Chi tiết", "Details", new { id = item.ProID }) |
+                @Html.ActionLink("Xóa", "Delete", new { id = item.ProID })
+            </td>
+        </tr>
+    }
+
+</table>
+<br />
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+@Html.PagedListPager(Model, page => Url.Action("Index", new
+{
+    page,
+    sortOrder = ViewBag.CurrentSort,
+    currentFilter = ViewBag.CurrentFilter
+}))

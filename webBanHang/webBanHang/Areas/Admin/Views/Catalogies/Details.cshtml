@@ -1,0 +1,27 @@
+﻿@model webBanHang.Models.Catalogy
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Catalogy</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt style="color:black">
+            @Html.DisplayNameFor(model => model.CataName)
+        </dt>
+
+        <dd style="color:black">
+            @Html.DisplayFor(model => model.CataName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

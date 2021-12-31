@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title>Admin Group 12</title>
 
     <!-- Custom fonts for this template-->
     <link href="/Asset/Admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -36,11 +36,11 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+                <div class="sidebar-brand-text mx-3">Group <sup>12</sup></div>
             </a>
 
             <!-- Divider -->
@@ -48,10 +48,8 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span>
-                </a>
+
+                @Html.ActionLink("Dashboard", "Index", "Home", null, new { area = "Admin", @class = "nav-link collapsed" })
             </li>
 
             <!-- Divider -->
@@ -59,40 +57,21 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Interface
+                Quản lý Tài khoản
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                    aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Components</span>
+                    <i class="fas fa-users"></i>
+                    <span>Quản lý Tài Khoản</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="buttons.html">Buttons</a>
-                        <a class="collapse-item" href="cards.html">Cards</a>
-                    </div>
-                </div>
-            </li>
-
-            <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                   aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Utilities</span>
-                </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                     data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href="utilities-color.html">Colors</a>
-                        <a class="collapse-item" href="utilities-border.html">Borders</a>
-                        <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                        <a class="collapse-item" href="utilities-other.html">Other</a>
+                        <h6 class="collapse-header">Select Components:</h6>
+                       
+                        @Html.ActionLink("Customer", "Index", "Customers", null, new { area = "Admin", @class = "collapse-item" })
                     </div>
                 </div>
             </li>
@@ -102,44 +81,44 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Addons
+                Quản lý Hàng hóa
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                    aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Pages</span>
+                    <i class="fab fa-product-hunt"></i>
+                    <span>Sản phẩm</span>
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="login.html">Login</a>
-                        <a class="collapse-item" href="register.html">Register</a>
-                        <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-                        <div class="collapse-divider"></div>
-                        <h6 class="collapse-header">Other Pages:</h6>
-                        <a class="collapse-item" href="404.html">404 Page</a>
-                        <a class="collapse-item" href="blank.html">Blank Page</a>
+                        <h6 class="collapse-header">Select components:</h6>
+                        @Html.ActionLink("Catalogy", "Index", "Catalogies", null, new { area = "Admin", @class = "collapse-item" })
+                        @Html.ActionLink("Product", "Index", "Products", null, new { area = "Admin", @class = "collapse-item" })
+                        @Html.ActionLink("Khuyến mại", "Index", "KhuyenMais", null, new { area = "Admin", @class = "collapse-item" })
                     </div>
                 </div>
             </li>
 
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link" href="charts.html">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Charts</span>
-                </a>
-            </li>
-
+            <hr class="sidebar-divider">
             <!-- Nav Item - Tables -->
+            <div class="sidebar-heading">
+                Quản lý Hóa đơn
+            </div>
             <li class="nav-item">
-                <a class="nav-link" href="tables.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseHD"
+                   aria-expanded="true" aria-controls="collapsePagess">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Hóa đơn</span>
                 </a>
+                <div id="collapseHD" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Select components:</h6>
+                        @Html.ActionLink("Hóa đơn", "Index", "HoaDons", null, new { area = "Admin", @class = "collapse-item" })
+                        @Html.ActionLink("Chi tiết HD", "Index", "ChiTietHoaDons", null, new { area = "Admin", @class = "collapse-item" })
+                    </div>
+                </div>
             </li>
 
             <!-- Divider -->
@@ -151,11 +130,11 @@
             </div>
 
             <!-- Sidebar Message -->
-            <div class="sidebar-card d-none d-lg-flex">
+            @*<div class="sidebar-card d-none d-lg-flex">
                 <img class="sidebar-card-illustration mb-2" src="/Asset/Admin/img/undraw_rocket.svg" alt="...">
                 <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
                 <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
-            </div>
+            </div>*@
 
         </ul>
         <!-- End of Sidebar -->
@@ -174,7 +153,7 @@
                     </button>
 
                     <!-- Topbar Search -->
-                    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                    <!--<form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
                             <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
                                    aria-label="Search" aria-describedby="basic-addon2">
@@ -184,19 +163,19 @@
                                 </button>
                             </div>
                         </div>
-                    </form>
+                    </form>-->
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
                         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-                        <li class="nav-item dropdown no-arrow d-sm-none">
+                        <!--<li class="nav-item dropdown no-arrow d-sm-none">
                             <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-search fa-fw"></i>
-                            </a>
+                            </a>-->
                             <!-- Dropdown - Messages -->
-                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                            <!--<div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
                                  aria-labelledby="searchDropdown">
                                 <form class="form-inline mr-auto w-100 navbar-search">
                                     <div class="input-group">
@@ -211,7 +190,7 @@
                                     </div>
                                 </form>
                             </div>
-                        </li>
+                        </li>-->
 
                         <!-- Nav Item - Alerts -->
                         <li class="nav-item dropdown no-arrow mx-1">
@@ -380,7 +359,7 @@
                 </nav>
                 <!-- End of Topbar -->
                 <!-- Begin Page Content -->
-               @RenderBody();
+               @RenderBody()
                 <!-- /.container-fluid -->
 
             </div>

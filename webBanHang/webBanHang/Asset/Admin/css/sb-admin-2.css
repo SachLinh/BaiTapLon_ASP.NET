@@ -64,7 +64,7 @@ body {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #858796;
+  color: black;
   text-align: left;
   background-color: #fff;
 }
@@ -118,6 +118,7 @@ ul ul,
 ol ul,
 ul ol {
   margin-bottom: 0;
+  color:black
 }
 
 dt {
@@ -127,6 +128,7 @@ dt {
 dd {
   margin-bottom: .5rem;
   margin-left: 0;
+  color:black
 }
 
 blockquote {

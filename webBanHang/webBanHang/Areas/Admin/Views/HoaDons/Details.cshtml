@@ -1,0 +1,74 @@
+﻿@model webBanHang.Models.HoaDon
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Chi tiết</h2>
+
+<div>
+    <h4>HoaDon</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt style="color:red">
+            @Html.DisplayNameFor(model => model.Customer.Username)
+        </dt>
+
+        <dd style="color:black">
+            @Html.DisplayFor(model => model.Customer.Username)
+        </dd>
+
+        <dt style="color:red">
+            @Html.DisplayNameFor(model => model.Phone)
+        </dt>
+
+        <dd style="color:black">
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+        <dt style="color:red">
+            @Html.DisplayNameFor(model => model.KhuyenMai.MaKhuyenMai)
+        </dt>
+
+        <dd style="color:black">
+            @Html.DisplayFor(model => model.KhuyenMai.MaKhuyenMai)
+        </dd>
+
+        <dt style="color:red">
+            @Html.DisplayNameFor(model => model.ngayDayHang)
+        </dt>
+
+        <dd style="color:black">
+            @Html.DisplayFor(model => model.ngayDayHang)
+        </dd>
+
+        <dt style="color:red">
+            @Html.DisplayNameFor(model => model.NoiNhanHang)
+        </dt>
+
+        <dd style="color:black">
+            @Html.DisplayFor(model => model.NoiNhanHang)
+        </dd>
+
+        <dt style="color:red">
+            @Html.DisplayNameFor(model => model.ThanhToan)
+        </dt>
+
+        <dd style="color:black">
+            @Html.DisplayFor(model => model.ThanhToan)
+        </dd>
+
+        <dt style="color:red">
+            @Html.DisplayNameFor(model => model.GiaoHang)
+        </dt>
+
+        <dd style="color:black">
+            @Html.DisplayFor(model => model.GiaoHang)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaHD }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

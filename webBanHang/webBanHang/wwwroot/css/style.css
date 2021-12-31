@@ -3,6 +3,10 @@ a {
     text-decoration: none;
 }
 
+a:hover {
+    cursor: pointer;
+}
+
 ul li {
     list-style: none;
 }
@@ -53,16 +57,16 @@ body {
 }
 
     .header_TimKiem select {
-        width: 50px;
+        max-width: 100px;
         height: 30px;
         border-radius: 20px;
     }
 
     .header_TimKiem input {
-        width: 430px;
+        width: 400px;
         height: 25px;
         border-radius: 20px;
-        margin-right: 40px;
+        margin-right: 20px;
         padding-left: 20px;
     }
 

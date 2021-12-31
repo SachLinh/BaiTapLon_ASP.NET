@@ -1,4 +1,4 @@
-namespace webBanHang.Models
+﻿namespace webBanHang.Models
 {
     using System;
     using System.Collections.Generic;

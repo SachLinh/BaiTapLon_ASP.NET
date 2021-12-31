@@ -50,6 +50,12 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
@@ -1779,6 +1785,7 @@
     <Content Include="Asset\Admin\vendor\jquery\jquery.min.js" />
     <Content Include="Asset\Admin\vendor\jquery\jquery.slim.js" />
     <Content Include="Asset\Admin\vendor\jquery\jquery.slim.min.js" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
@@ -1821,15 +1828,26 @@
     <Content Include="wwwroot\images\TrungCut.jpg" />
     <Content Include="wwwroot\images\TrungGaTa.jpg" />
     <Content Include="wwwroot\images\TrungVit.jpg" />
+    <Content Include="wwwroot\css\product.css" />
+    <Content Include="wwwroot\js\angular-animate.min.js" />
+    <Content Include="wwwroot\js\angular.min.js" />
+    <Content Include="wwwroot\js\app.js" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\CatalogiesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ChiTietHoaDonsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CustomersController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HoaDonsController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\KhuyenMaisController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductsController.cs" />
     <Compile Include="Controllers\DangKyController.cs" />
     <Compile Include="Controllers\DangNhapController.cs" />
     <Compile Include="Controllers\GioHangController.cs" />
+    <Compile Include="Controllers\SanPhamController.cs" />
     <Compile Include="Controllers\TrangChuController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -2023,6 +2041,36 @@
     <Content Include="Asset\Admin\vendor\jquery\jquery.slim.min.map" />
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Catalogies\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Catalogies\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Catalogies\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Catalogies\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Catalogies\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\KhuyenMais\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\KhuyenMais\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\KhuyenMais\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\KhuyenMais\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\KhuyenMais\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Customers\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Customers\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Customers\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Customers\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Customers\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\HoaDons\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\HoaDons\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\HoaDons\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\HoaDons\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\HoaDons\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ChiTietHoaDons\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\ChiTietHoaDons\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\ChiTietHoaDons\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\ChiTietHoaDons\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\ChiTietHoaDons\Index.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -2033,6 +2081,8 @@
     <Content Include="Views\GioHang\GioHang.cshtml" />
     <Content Include="Views\GioHang\DatHang.cshtml" />
     <Content Include="Views\GioHang\XacNhanDonHang.cshtml" />
+    <Content Include="Views\SanPham\Index.cshtml" />
+    <Content Include="Views\SanPham\Detail.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

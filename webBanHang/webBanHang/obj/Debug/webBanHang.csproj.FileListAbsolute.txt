@@ -299,4 +299,87 @@ E:\Tài liệu ASP.NET\New folder\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\Mi
 E:\Tài liệu ASP.NET\New folder\BaiTapLon_ASP.NET\webBanHang\webBanHang\obj\Debug\webBanHang.csproj.CoreCompileInputs.cache
 E:\Tài liệu ASP.NET\New folder\BaiTapLon_ASP.NET\webBanHang\webBanHang\obj\Debug\webBanHang.dll
 E:\Tài liệu ASP.NET\New folder\BaiTapLon_ASP.NET\webBanHang\webBanHang\obj\Debug\webBanHang.pdb
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\webBanHang.dll.config
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\webBanHang.dll
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\webBanHang.pdb
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\roslyn\csc.exe
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\roslyn\csc.exe.config
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\roslyn\csc.rsp
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\roslyn\csi.exe
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\roslyn\csi.exe.config
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\roslyn\csi.rsp
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\roslyn\Microsoft.Managed.Core.targets
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\roslyn\System.AppContext.dll
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\roslyn\System.Collections.Immutable.dll
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\roslyn\System.Console.dll
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\roslyn\System.Globalization.Calendars.dll
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\roslyn\System.IO.Compression.dll
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\roslyn\System.IO.Compression.ZipFile.dll
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\roslyn\System.IO.FileSystem.dll
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\roslyn\System.Net.Http.dll
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\roslyn\System.Net.Sockets.dll
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\roslyn\System.Reflection.Metadata.dll
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\roslyn\System.ValueTuple.dll
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\roslyn\System.Xml.XmlDocument.dll
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\roslyn\System.Xml.XPath.dll
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\roslyn\vbc.exe
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\roslyn\vbc.exe.config
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\roslyn\vbc.rsp
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\roslyn\VBCSCompiler.exe
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\roslyn\VBCSCompiler.exe.config
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\EntityFramework.dll
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\EntityFramework.SqlServer.dll
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\Microsoft.Web.Infrastructure.dll
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\System.Web.Helpers.dll
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\System.Web.Mvc.dll
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\System.Web.Razor.dll
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\System.Web.Webpages.Deployment.dll
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\System.Web.Webpages.dll
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\System.Web.Webpages.Razor.dll
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\EntityFramework.xml
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\EntityFramework.SqlServer.xml
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\System.Web.Razor.xml
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\System.Web.Webpages.xml
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\System.Web.Webpages.Deployment.xml
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\System.Web.Webpages.Razor.xml
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\System.Web.Helpers.xml
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\System.Web.Mvc.xml
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\obj\Debug\webBanHang.csproj.CoreCompileInputs.cache
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\obj\Debug\webBanHang.csproj.CopyComplete
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\obj\Debug\webBanHang.dll
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\obj\Debug\webBanHang.pdb
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\PagedList.dll
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\PagedList.Mvc.dll
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\PagedList.xml
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\PagedList.Mvc.xml
+E:\Tài liệu ASP.NET\New folder\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\PagedList.dll
+E:\Tài liệu ASP.NET\New folder\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\PagedList.Mvc.dll
+E:\Tài liệu ASP.NET\New folder\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\PagedList.xml
+E:\Tài liệu ASP.NET\New folder\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\PagedList.Mvc.xml
 E:\Tài liệu ASP.NET\New folder\BaiTapLon_ASP.NET\webBanHang\webBanHang\obj\Debug\webBanHang.csproj.AssemblyReference.cache
