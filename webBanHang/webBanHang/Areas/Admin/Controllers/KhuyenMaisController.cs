@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using webBanHang.Models;
+using PagedList;
 
 namespace webBanHang.Areas.Admin.Controllers
 {
@@ -15,9 +16,36 @@ namespace webBanHang.Areas.Admin.Controllers
         private WebBanHangNongSan db = new WebBanHangNongSan();
 
         // GET: Admin/KhuyenMais
-        public ActionResult Index()
+        public ActionResult Index(string searchString, string sortOrder, string currentFilter, int? page)
         {
-            return View(db.KhuyenMais.ToList());
+            ViewBag.CurrentSort = sortOrder;
+            ViewBag.SapTheoMa = string.IsNullOrEmpty(sortOrder) ? "ma_desc" : "";
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+            ViewBag.CurrentFilter = searchString;
+            var khuyenMai = db.KhuyenMais.Select(k => k);
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                khuyenMai = khuyenMai.Where(k => k.MaKhuyenMai.Contains(searchString));
+            }
+            switch (sortOrder)
+            {
+                case "ma_desc":
+                    khuyenMai = khuyenMai.OrderByDescending(k => k.MaKhuyenMai);
+                    break;
+                default:
+                    khuyenMai = khuyenMai.OrderBy(k => k.MaKhuyenMai);
+                    break;
+            }
+            int pageSize = 3;
+            int pageNumer = (page ?? 1);
+            return View(khuyenMai.ToPagedList(pageNumer, pageSize));
         }
 
         // GET: Admin/KhuyenMais/Details/5

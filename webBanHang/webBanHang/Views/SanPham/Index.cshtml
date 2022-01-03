@@ -1,6 +1,7 @@
 ﻿@using webBanHang.Models;
 @using PagedList.Mvc
 @model PagedList.IPagedList<Product>
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 @*@model IEnumerable<Product>*@
 
 @{
@@ -18,11 +19,11 @@
         <div class="categories">
             <span>DANH MỤC SẢN PHẨM</span>
             <ul>
-                <li><a href="/SanPham/Index"><i class="fa fa-angle-right"></i>TẤT CẢ</a></li>
+                <li><a href="@Url.Action("Index", new { currentMinPrice = ViewBag.CurrentMinPrice, currentMaxPrice = ViewBag.CurrentMaxPrice })"><i class="fa fa-angle-right"></i>TẤT CẢ</a></li>
                 @foreach (var item in category)
                 {
                     <li>
-                        <a href="@Url.Action("Index", new { cataId = @item.ID })">
+                        <a href="@Url.Action("Index", new { cataId = @item.ID, currentMinPrice = ViewBag.CurrentMinPrice, currentMaxPrice = ViewBag.CurrentMaxPrice })">
                             <i class="fa fa-angle-right"></i>
                             @(String.Format(item.CataName).ToUpper())
                         </a>
@@ -35,13 +36,17 @@
         <div class="filter-price">
             <span id="title">LỌC THEO GIÁ</span>
             <div>
-                <input type="text" placeholder="Từ">
-                <i class="fas fa-minus"></i>
-                <input type="text" placeholder="Đến">
+                @using (Html.BeginForm())
+                {
+                    @Html.TextBox("minPrice", ViewBag.CurrentMinPrice as string, new { @placeholder = "Từ" })
+                    <i class="fas fa-minus"></i>
+                    @Html.TextBox("maxPrice", ViewBag.CurrentMaxPrice as string, new { @placeholder = "Đến" })
+                    <div class="apply-filter">
+                        <input type="submit" value="Áp dụng" style="padding: 10px;" />
+                    </div>
+                }
             </div>
-            <div>
-                <button>Áp dụng</button>
-            </div>
+
         </div>
         <!-- End filter price -->
         <!-- New products -->
@@ -90,7 +95,14 @@
                 </label>
             </div>
             <div class="right col-6">
-                <span>Đang có @ViewBag.ProductCount sản phẩm</span>
+                @if (ViewBag.ProductCount > 0)
+                {
+                    <span>Đang có @ViewBag.ProductCount sản phẩm</span>
+                }
+                else
+                {
+                    <span>Không có kết quả tìm kiếm cho từ khóa '@ViewBag.CurrentFilter'</span>
+                }
                 <span class="sort-filter">
                     <select>
                         <option selected value="">Mặc định</option>
@@ -103,7 +115,7 @@
             </div>
         </div> <!-- End filter-->
         <!-- Product list -->
-        <div class="product-list"  style="display:flex; justify-content:flex-start; align-items:flex-start; flex-wrap:wrap">
+        <div class="product-list" style="display:flex; justify-content:flex-start; align-items:flex-start; flex-wrap:wrap">
             @foreach (var item in Model)
             {
                 <div class="product-item" ng-class="{list: !viewMode}">
@@ -127,7 +139,7 @@
                         </div>
                         <div ng-class="{'add-cart': viewMode, 'add-cart-large': !viewMode}">
                             <a href="@Url.Action("ThemGioHang", "Giohang", new { @sMaSP = item.ProID, @strURL = Request.Url.ToString() })" class="add-cart-btn">
-                                Đặt mua 
+                                Đặt mua
                             </a>
                         </div>
                     </div>
@@ -138,52 +150,15 @@
         {
             <div class="paged-list">
                 @Html.PagedListPager(Model, page => Url.Action("Index", new
-                {
-                    page,
-                    cataId = ViewBag.CurrentCategory
-                }))
+           {
+               page,
+               cataId = ViewBag.CurrentCategory,
+               currentMinPrice = ViewBag.CurrentMinPrice,
+               currentMaxPrice = ViewBag.CurrentMaxPrice,
+               currentFilter = ViewBag.CurrentFilter
+           }))
             </div>
         }
     </div>
     <!-- End main content-->
-    <!-- Quick view  -->
-    <!--<div class="hidden-view" ng-show="hiddenView">
-        <div class="blur" ng-click="closeQuickView()"></div>
-        <div class="quick-view">-->
-    <!-- Header -->
-    <!--<div class="header">
-        <div class="title">THÔNG TIN SẢN PHẨM</div>
-        <div class="close">
-            <i class="fas fa-window-close" ng-click="closeQuickView()"></i>
-        </div>
-    </div>-->
-    <!-- Main info -->
-    <!--<div class="main-info">
-        <div class="img left">
-            <img src="{{productQuickView.image}}" width="100%" height="100%">
-        </div>
-        <div class="info left">
-            <div class="name">{{productQuickView.name}}</div>
-            <div class="brand">
-                <span>Hãng</span> {{productQuickView.Brand}}
-            </div>
-            <div class="capacity">
-                <span>Dung tích</span> {{productQuickView.dungTich}}cc
-            </div>
-            <div class="price">
-                <span>Giá</span> {{productQuickView.Price | number}}<div class="currency"><u>đ</u></div>
-            </div>
-            <div class="quantity">
-                <span><label for="quantity">Số lượng</label></span>
-                <input type="number" name="quantity" value="1" step="1" min="1">
-            </div>
-            <div align="center">
-                <input type="button" ng-click="add_cart(productQuickView)" value="Add cart" class="add-cart-btn">
-            </div>
-        </div>
-    </div>-->
-    <!-- End main info -->
-    <!--</div>
-    </div>-->
-    <!-- End Quick view  -->
 </div>

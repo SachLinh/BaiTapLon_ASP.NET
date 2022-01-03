@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using webBanHang.Models;
+using PagedList;
 
 namespace webBanHang.Areas.Admin.Controllers
 {
@@ -15,19 +16,33 @@ namespace webBanHang.Areas.Admin.Controllers
         private WebBanHangNongSan db = new WebBanHangNongSan();
 
         // GET: Admin/ChiTietHoaDons
-        public ActionResult Index(string sortOrder, string searchString)
+        public ActionResult Index(string searchString, string sortOrder, string currentFilter, int? page, int? maHD)
         {
+            ViewBag.CurrentMaHD = maHD;
+            ViewBag.TenKH = db.HoaDons.FirstOrDefault(hd => hd.MaHD == maHD).Customer.Username;
+            ViewBag.CurrentSort = sortOrder;
             ViewBag.SapXepHD = string.IsNullOrEmpty(sortOrder) ? "HD_desc" : "";
             ViewBag.SapXepPro = sortOrder == "Pro" ? "Pro_desc" : "Pro";
-            var chiTietHoaDons = db.ChiTietHoaDons.Select(c => c);
 
-            if(!string.IsNullOrEmpty(searchString))
+            if (searchString != null)
             {
-                int ss = int.Parse(searchString);
-                chiTietHoaDons = chiTietHoaDons.Where(c => c.MaHD == ss);
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+            ViewBag.CurrentFilter = searchString;
+            var chiTietHoaDons = db.ChiTietHoaDons.Select(c => c);
+            if (maHD != null)
+                chiTietHoaDons = chiTietHoaDons.Where(c => c.MaHD == maHD);
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                chiTietHoaDons = chiTietHoaDons.Where(c => c.Product.ProName.Contains(searchString));
             }
 
-            switch(sortOrder)
+            switch (sortOrder)
             {
                 case "HD_desc":
                     chiTietHoaDons = chiTietHoaDons.OrderByDescending(c => c.HoaDon.MaHD);
@@ -45,7 +60,10 @@ namespace webBanHang.Areas.Admin.Controllers
                     chiTietHoaDons = chiTietHoaDons.OrderBy(c => c.HoaDon.MaHD);
                     break;
             }
-            return View(chiTietHoaDons.ToList());
+
+            int pageSize = 3;
+            int pageNumer = (page ?? 1);
+            return View(chiTietHoaDons.ToPagedList(pageNumer, pageSize));
         }
 
         // GET: Admin/ChiTietHoaDons/Details/5

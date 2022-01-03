@@ -5,14 +5,14 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Create</h2>
+<h2>Tạo mới</h2>
 
 @using (Html.BeginForm("Create","Products",FormMethod.Post, new { enctype = "multipart/form-data"}))
 {
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>Product</h4>
+        <h4>Sản phẩm</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -60,7 +60,7 @@
             <div class="col-md-10">
                 <img id="output" class="img-thumbnail" alt="anh" width="180" height="200" src="~/wwwroot/images/anhBackGround.jpeg" />
                 <p>
-                    <label for="ufile" style="cursor:pointer">Chon file anh</label>
+                    <label for="ufile" style="cursor:pointer">Chọn file ảnh</label>
                 </p>
                 <input name="ImageFile" id="ufile" type="file" style="display:none" onchange="loadFile(event)" />
             </div>
@@ -84,14 +84,14 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Tạo" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Quay lại", "Index")
 </div>
 @if (ViewBag.Error != null)
 {

@@ -21,7 +21,11 @@ namespace webBanHang.Models
 
         public int? SoLuongMua { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:0,##0}")]
         public int? Price { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:0,##0}")]
+        public int? Total { get { return Price * SoLuongMua; } }
 
         public virtual Product Product { get; set; }
 

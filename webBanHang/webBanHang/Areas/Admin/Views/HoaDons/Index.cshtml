@@ -22,10 +22,10 @@
 <table class="table">
     <tr style="color:red">
         <th>
-            @Html.ActionLink("Ma HD", "Index", new { sortOrder = ViewBag.SapTheoID, currentFilter = ViewBag.CurrentFilter })
+            @Html.ActionLink("Mã hóa đơn", "Index", new { sortOrder = ViewBag.SapTheoID, currentFilter = ViewBag.CurrentFilter })
         </th>
         <th>
-            @Html.ActionLink("UserName", "Index", new { sortOrder = ViewBag.SapTheoTen, currentFilter = ViewBag.CurrentFilter })
+            @Html.ActionLink("Tên khách hàng", "Index", new { sortOrder = ViewBag.SapTheoTen, currentFilter = ViewBag.CurrentFilter })
         </th>
         <th>
             Khuyến mại
@@ -37,10 +37,10 @@
             Nơi nhận hàng
         </th>
         <th>
-            Thanh toán 
+            Thanh toán
         </th>
         <th>
-           Giao hàng
+            Giao hàng
         </th>
         <th></th>
     </tr>
@@ -49,7 +49,9 @@
     {
         <tr style="color:black">
             <td>
-                @Html.DisplayFor(modelItem => item.MaHD)
+                <a href="@Url.Action("Index", "ChiTietHoaDons", new { maHD = item.MaHD })">
+                    @Html.DisplayFor(modelItem => item.MaHD)
+                </a>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Customer.Username)
@@ -71,7 +73,7 @@
             </td>
             <td>
                 @Html.ActionLink("Chỉnh sửa", "Edit", new { id = item.MaHD }) |
-                @Html.ActionLink("Chi tiết", "Details", new { id = item.MaHD }) |
+                @Html.ActionLink("Chi tiết", "Index", "ChiTietHoaDons", new { maHD = item.MaHD }, new { }) |
                 @Html.ActionLink("Xóa", "Delete", new { id = item.MaHD })
             </td>
         </tr>
@@ -79,10 +81,10 @@
 
 </table>
 <br />
-Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
-@Html.PagedListPager(Model, page => Url.Action("Index", new
-{
-    page,
-    sortOrder = ViewBag.CurrentSort,
- currentFilter = ViewBag.CurrentFilter
-}))
+    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+    @Html.PagedListPager(Model, page => Url.Action("Index", new
+    {
+        page,
+        sortOrder = ViewBag.CurrentSort,
+        currentFilter = ViewBag.CurrentFilter
+    }))

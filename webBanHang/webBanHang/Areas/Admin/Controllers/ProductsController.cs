@@ -15,7 +15,7 @@ namespace webBanHang.Areas.Admin.Controllers
         private WebBanHangNongSan db = new WebBanHangNongSan();
 
         // GET: Admin/Products
-        public ActionResult Index(string sortOrder,string searchString, string currentFilter, int? page)
+        public ActionResult Index(string sortOrder, string searchString, string currentFilter, int? page)
         {
             ViewBag.CurrentSort = sortOrder;
             ViewBag.SapTheoTen = string.IsNullOrEmpty(sortOrder) ? "ten_desc" : "";
@@ -36,7 +36,7 @@ namespace webBanHang.Areas.Admin.Controllers
             {
                 products = products.Where(s => s.ProName.Contains(searchString));
             }
-            switch(sortOrder)
+            switch (sortOrder)
             {
                 case "ten_desc":
                     products = products.OrderByDescending(p => p.ProName);
@@ -103,7 +103,7 @@ namespace webBanHang.Areas.Admin.Controllers
                 {
                     product.ProImage = "";
                     var f = Request.Files["ImageFile"];
-                    if(f != null & f.ContentLength > 0)
+                    if (f != null & f.ContentLength > 0)
                     {
                         string FileName = System.IO.Path.GetFileName(f.FileName);
                         string UpLoadFile = Server.MapPath("~/wwwroot/images/" + FileName);
@@ -112,17 +112,18 @@ namespace webBanHang.Areas.Admin.Controllers
                     }
                     db.Products.Add(product);
                     db.SaveChanges();
-                   
-                } return RedirectToAction("Index");
+
+                }
+                return RedirectToAction("Index");
             }
-            
-            catch(Exception ex)
+
+            catch (Exception ex)
             {
-                ViewBag.Error = "Loi nhap du lieu!!!" + ex.Message;
+                ViewBag.Error = "Lỗi nhập dữ liệu!!!" + ex.Message;
                 ViewBag.ID = new SelectList(db.Catalogies, "ID", "CataName", product.ID);
                 return View(product);
             }
-           
+
         }
 
         // GET: Admin/Products/Edit/5
@@ -152,18 +153,30 @@ namespace webBanHang.Areas.Admin.Controllers
             {
                 if (ModelState.IsValid)
                 {
+                    product.ProImage = "";
+                    var f = Request.Files["ImageFile"];
+
+                    if (f != null & f.ContentLength > 0)
+                    {
+                        string FileName = System.IO.Path.GetFileName(f.FileName);
+                        string UpLoadFile = Server.MapPath("~/wwwroot/images/" + FileName);
+                        f.SaveAs(UpLoadFile);
+                        product.ProImage = FileName;
+                    }
+
                     db.Entry(product).State = EntityState.Modified;
                     db.SaveChanges();
-                    
-                }return RedirectToAction("Index");
+
+                }
+                return RedirectToAction("Index");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                ViewBag.Error = "Loi nhap du lieu!!!" + ex.Message;
+                ViewBag.Error = "Lỗi sửa dữ liệu!!! " + ex.Message;
                 ViewBag.ID = new SelectList(db.Catalogies, "ID", "CataName", product.ID);
                 return View(product);
             }
-            
+
         }
 
         // GET: Admin/Products/Delete/5
@@ -193,9 +206,9 @@ namespace webBanHang.Areas.Admin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                ViewBag.Error = "Khong xoa duo du lieu!!! " +  ex.Message;
+                ViewBag.Error = "Không xóa được dữ liệu!!! " + ex.Message;
                 return View("Delete", product);
             }
         }

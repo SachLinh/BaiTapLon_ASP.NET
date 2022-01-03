@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -11,8 +12,12 @@ namespace webBanHang.Models
         public string sMaSP { get; set; }
         public string sTenSP { get; set; }
         public string sHinhAnh { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:0,##0}")]
         public int fDonGia { get; set; }
         public int iSoLuong { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:0,##0}")]
         public Double dThanhTien
         {
             get { return fDonGia * iSoLuong; }

@@ -27,6 +27,7 @@
 
         public int? Quantity { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:0,##0}")]
         public int? Price { get; set; }
 
         [StringLength(100)]
