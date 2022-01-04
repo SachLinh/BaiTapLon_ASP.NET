@@ -41,7 +41,7 @@ namespace webBanHang.Areas.Admin.Controllers
                                      DateOfImport = kq.Key.DateOfImport,
                                      soluongMua = kq.Count()
                                  };
-            var s = sanPhamBanChay.Take(3);
+            var s = sanPhamBanChay.Take(1);
             return View(s.ToList());
         }
     }

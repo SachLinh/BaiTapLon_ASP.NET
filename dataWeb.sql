@@ -1,36 +1,39 @@
 ﻿use master
 go
 
+drop database WebBanHangNongSan
+go
+
 create database WebBanHangNongSan
 go
 
 use WebBanHangNongSan
 go
----********************************
+---**************ADMIN******************
 create table Admin(
   UserName  nvarchar(10) primary key,
   PassWord   nvarchar(20),
 )
 go
---********************************
+--**************CUSTOMER******************
 create table Customer
 (
   Username  nvarchar(20),
-  PassWord nvarchar(20),
+  PassWord nvarchar(100),
   Phone   nvarchar(10) primary key,
   Email   nvarchar(30),
   Address  nvarchar(50),
   RoleID   char(15)
 )
 go
---********************************
+--***************CATALOGY*****************
 create table Catalogy
 (
   ID        nvarchar(10)   primary key,
   CataName  nvarchar(20)
 )
 go
----********************************
+---***************PRODUCT*****************
 
 create table Product
 (
@@ -43,28 +46,17 @@ create table Product
   DateOfImport   date,
   ProDescription  nvarchar(100)
 )
+go
 
-
----********************************
+---***************KHUYENMAI*****************
 create table KhuyenMai
 (
   MaKhuyenMai    nvarchar(10)  primary key,
   GiaTri       float
 )
+go
 
-insert into KhuyenMai
-values ('KM01', 0.2),
-       ('KM02', 0.3),
-	   ('KM03', 0.5)
-insert into KhuyenMai
-values ('KM00', 0)
-
-
-select * from KhuyenMai
---********************************
-
---********************************
-
+--****************HOADON****************
 create table HoaDon
 (
   MaHD     int IDENTITY(1,1) primary key,
@@ -75,9 +67,9 @@ create table HoaDon
   ThanhToan    bit,
   GiaoHang   bit,
 )
+go
 
-
---********************************
+--***************CHITIETHOADON*****************
 create table ChiTietHoaDon
 (
     MaHD   int   foreign key (MaHD) references HoaDon(MaHD) on update cascade on delete cascade,
@@ -86,7 +78,8 @@ create table ChiTietHoaDon
 	Price   int,
 	primary key (MaHD, ProID)
 )
-
+go
+	
 --********************************
 ----- Hóa Đơn: Mã, ten khách Hàng, ngày, Mã KM.
 ----- Chi tiết hóa đơn: Mã HD, Mã Hàng, Số lượng Mua, Thanh Tien (SoLuong*Gia)
@@ -96,12 +89,30 @@ create table ChiTietHoaDon
 ----- Thủ tục tính Thanh Tien
 ----- Trigger update lại số lượng sản phẩm.
 ------------------
+
+insert into Admin 
+values('admin1', 'abc123'),
+      ('admin2', 'abc1234')
+go
+
+insert into Customer
+values ('customer1', 'abc123', '011111', 'customer1@gmail.com', 'HaNoi', 'Cap2'),
+       ('customer2', 'abc123', '022222', 'customer2@gmail.com', 'NamDinh','Cap1'),
+	   ('customer3', 'abc123', '033333', 'customer3@gmail.com', 'HaiDuong', 'Cap2'),
+	   ('customer4', 'abc123', '044444', 'customer4@gmail.com', 'BacNinh','Cap1')
+go
+
+insert into Catalogy
+values ('Loai1', N'Thịt Cá Dân Dã'),
+       ('Loai2', N'Trái Cây'),
+	   ('Loai3', N'Rau Hữu Cơ')
+go
+
 insert into Product
 values
 ('SP01', 'Loai1', N'Thịt bò', 30, 250000, 'ThitSuon.jpeg', '11/12/2021', N'Thịt bò được nuôi sạch, quy trình làm thịt sạch sẽ, không chất bảo quản'),
 ('SP02', 'Loai3', N'Rau dền', 30, 35000, 'RauDen.jpeg', '11/12/2021', N'Quy trình bào quản chất lượng, an toàn, không chất kích thích, không chất bảo quản'),
 ('SP03', 'Loai3', N'Rau cải chíp', 30, 10000, 'RauCaiChip.jpeg', '11/12/2021', N'Rau sạch, không thuốc trừ sau, không chất kích thích')
-
 insert into Product
 values('SP04', 'Loai1', N'Bắp Bò', 50, 160000, 'BapBo.jpg', '12/12/2021', N'Thịt bò được nuôi sạch, quy trình làm thịt sạch sẽ, không chất bảo quản'),
 ('SP05', 'Loai3', N'Bắp Cải', 10, 15000, 'BapCai.jpg', '12/12/2021', N'Quy trình bào quản chất lượng, an toàn, không chất kích thích, không chất bảo quản'),
@@ -126,34 +137,17 @@ values('SP04', 'Loai1', N'Bắp Bò', 50, 160000, 'BapBo.jpg', '12/12/2021', N'T
 ('SP27', 'Loai1', N'Trứng Gà Ta', 30, 33000, 'TrungGaTa.jpg', '11/12/2021', N'Thịt được nuôi sạch, quy trình làm thịt sạch sẽ, không chất bảo quản'),
 ('SP28', 'Loai1', N'Trứng Cút', 20, 10000, 'TrungCut.jpg', '11/12/2021', N'Thịt được nuôi sạch, quy trình làm thịt sạch sẽ, không chất bảo quản'),
 ('SP29', 'Loai1', N'Trứng Vịt', 30, 30000, 'TrungVit.jpg', '11/12/2021', N'Thịt được nuôi sạch, quy trình làm thịt sạch sẽ, không chất bảo quản')
-
-
 insert into Product
 values('SP10', 'Loai1', N'Cá Lăng', 5, 100000, 'CaLang.jpeg', '12/12/2021', N'Thịt được nuôi sạch, quy trình làm thịt sạch sẽ, không chất bảo quản')
-
 go
 
-insert into Admin 
-values('admin1', 'abc123'),
-      ('admin2', 'abc1234')
-select * from Admin
-
-insert into Customer
-values ('customer1', 'abc123', '011111', 'customer1@gmail.com', 'HaNoi', 'Cap2'),
-       ('customer2', 'abc123', '022222', 'customer2@gmail.com', 'NamDinh','Cap1'),
-	   ('customer3', 'abc123', '033333', 'customer3@gmail.com', 'HaiDuong', 'Cap2'),
-	   ('customer4', 'abc123', '044444', 'customer4@gmail.com', 'BacNinh','Cap1')
-
-insert into Catalogy
-values ('Loai1', N'Thịt Cá Dân Dã'),
-       ('Loai2', N'Trái Cây'),
-	   ('Loai3', N'Rau Hữu Cơ')
+insert into KhuyenMai
+values ('KM01', 0.2),
+       ('KM02', 0.3),
+	   ('KM03', 0.5)
+insert into KhuyenMai
+values ('KM00', 0)
 go
-
-select * from HoaDon
-
-
-
 
 select * from Admin
 go
@@ -223,8 +217,6 @@ select * from ChiTietHoaDon
 go
 insert into ChiTietHoaDon 
 values ('HD02', 'SP02', 5,175 )
---********************************** Thủ tục tính Thanh Tien trong ChiTietHoaDon
---************************************ Hiển thị 3 mặt hàng đk mua nhiều nhất
 
 
 
