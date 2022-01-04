@@ -19,7 +19,7 @@ namespace webBanHang.Areas.Admin.Controllers
         public ActionResult Index(string searchString, string sortOrder, string currentFilter, int? page)
         {
             ViewBag.CurrentSort = sortOrder;
-            ViewBag.SapTheoTen = string.IsNullOrEmpty(sortOrder) ? "ten_desc" : "ten";
+            ViewBag.SapTheoTen = string.IsNullOrEmpty(sortOrder) ? "ten_desc" : "";
             if(searchString != null)
             {
                 page = 1;

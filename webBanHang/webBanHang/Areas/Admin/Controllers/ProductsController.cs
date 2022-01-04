@@ -63,7 +63,7 @@ namespace webBanHang.Areas.Admin.Controllers
                     products = products.OrderBy(p => p.ProName);
                     break;
             }
-            int pageSize = 5;
+            int pageSize = 3;
             int pageNumber = (page ?? 1);
             return View(products.ToPagedList(pageNumber, pageSize));
         }

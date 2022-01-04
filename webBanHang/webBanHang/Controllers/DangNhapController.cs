@@ -40,7 +40,7 @@ namespace webBanHang.Controllers
                 }
                 else
                 {
-                    ViewBag.ThongBao = "Sai tên đăng nhập hoặc mật khẩu";
+                    ViewBag.ThongBao = "Sai email hoặc mật khẩu";
                 }
             }
             return View();
