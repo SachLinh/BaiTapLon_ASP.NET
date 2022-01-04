@@ -1801,6 +1801,8 @@
     <Content Include="wwwroot\images\CaLang.jpeg" />
     <Content Include="wwwroot\images\Cam.jpg" />
     <Content Include="wwwroot\images\Carot.jpg" />
+    <Content Include="wwwroot\images\catra.jpeg" />
+    <Content Include="wwwroot\images\CaTra1.png" />
     <Content Include="wwwroot\images\ChuoiNgu.jpg" />
     <Content Include="wwwroot\images\DauBap.png" />
     <Content Include="wwwroot\images\DauTrach.jpeg" />
@@ -1810,21 +1812,29 @@
     <Content Include="wwwroot\images\Ga.jpeg" />
     <Content Include="wwwroot\images\HauDa.jpeg" />
     <Content Include="wwwroot\images\KhoQua.png" />
+    <Content Include="wwwroot\images\khuyenmai.jpg" />
+    <Content Include="wwwroot\images\kmtet.png" />
     <Content Include="wwwroot\images\logo1.png" />
     <Content Include="wwwroot\images\logo2.png" />
     <Content Include="wwwroot\images\logo3.png" />
     <Content Include="wwwroot\images\MangCau.png" />
     <Content Include="wwwroot\images\MangTay.png" />
     <Content Include="wwwroot\images\Muop.png" />
+    <Content Include="wwwroot\images\nong san.jpeg" />
+    <Content Include="wwwroot\images\nongsan1.jpg" />
+    <Content Include="wwwroot\images\nongsan2.jpg" />
     <Content Include="wwwroot\images\RauCaiChip.jpeg" />
     <Content Include="wwwroot\images\RauDen.jpeg" />
     <Content Include="wwwroot\images\RauNgot.jpg" />
     <Content Include="wwwroot\images\TaoAmbrosia.jpg" />
     <Content Include="wwwroot\images\ThanBo.jpg" />
+    <Content Include="wwwroot\images\thanhlong.jpeg" />
+    <Content Include="wwwroot\images\thit.jpg" />
     <Content Include="wwwroot\images\ThitSuon.jpeg" />
     <Content Include="wwwroot\images\ThitSuon1.jpeg" />
     <Content Include="wwwroot\images\TiaTo.jpg" />
     <Content Include="wwwroot\images\tom.jpeg" />
+    <Content Include="wwwroot\images\tom.jpg" />
     <Content Include="wwwroot\images\TrungCut.jpg" />
     <Content Include="wwwroot\images\TrungGaTa.jpg" />
     <Content Include="wwwroot\images\TrungVit.jpg" />
@@ -1849,6 +1859,7 @@
     <Compile Include="Controllers\DangNhapController.cs" />
     <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\SanPhamController.cs" />
+    <Compile Include="Controllers\TinTucController.cs" />
     <Compile Include="Controllers\TrangChuController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -2086,6 +2097,7 @@
     <Content Include="Views\GioHang\XacNhanDonHang.cshtml" />
     <Content Include="Views\SanPham\Index.cshtml" />
     <Content Include="Views\SanPham\Detail.cshtml" />
+    <Content Include="Views\TinTuc\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
