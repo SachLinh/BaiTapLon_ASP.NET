@@ -13,10 +13,12 @@ namespace webBanHang.Models
         [DisplayFormat(DataFormatString = "{0:0,##0}")]
         public int? Price { get; set; }
         public string ProImage { get; set; }
-        public string ID { get; set; }
+        public string CataName { get; set; }
         public int? soluongMua { get; set; }
         public int? Quantity { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime? DateOfImport { get; set; }
+
     }
 }

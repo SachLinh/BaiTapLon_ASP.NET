@@ -13,17 +13,17 @@ namespace webBanHang.Areas.Admin.Controllers
         // GET: Admin/SanPhamBanChay
         public ActionResult Index()
         {
-
             var sanPhamBanChay = from hd in db.HoaDons
                                  join cthd in db.ChiTietHoaDons on hd.MaHD equals cthd.MaHD
                                  join sp in db.Products on cthd.ProID equals sp.ProID
+                                 join c in db.Catalogies on sp.ID equals c.ID
                                  group sp by new
                                  {
                                      sp.ProID,
                                      sp.ProName,
                                      sp.ProImage,
                                      sp.Price,
-                                     sp.ID,
+                                     c.CataName,
                                      sp.Quantity,
                                      sp.ProDescription,
                                      sp.DateOfImport
@@ -37,11 +37,11 @@ namespace webBanHang.Areas.Admin.Controllers
                                      ProImage = kq.Key.ProImage,
                                      Quantity = kq.Key.Quantity,
                                      Price = kq.Key.Price,
-                                     ID = kq.Key.ID,
+                                     CataName = kq.Key.CataName,
                                      DateOfImport = kq.Key.DateOfImport,
                                      soluongMua = kq.Count()
                                  };
-            var s = sanPhamBanChay.Take(1);
+            var s = sanPhamBanChay.Take(3);
             return View(s.ToList());
         }
     }

@@ -32,7 +32,10 @@ namespace webBanHang.Areas.Admin.Controllers
             {
                 searchString = currentFilter;
             }
+
             ViewBag.CurrentFilter = searchString;
+
+
             var chiTietHoaDons = db.ChiTietHoaDons.Select(c => c);
             if (maHD != null)
                 chiTietHoaDons = chiTietHoaDons.Where(c => c.MaHD == maHD);
@@ -59,6 +62,16 @@ namespace webBanHang.Areas.Admin.Controllers
                 default:
                     chiTietHoaDons = chiTietHoaDons.OrderBy(c => c.HoaDon.MaHD);
                     break;
+            }
+
+            if (chiTietHoaDons != null)
+            {
+                int tongTien = 0;
+                foreach (var item in chiTietHoaDons)
+                {
+                    tongTien += item.Total;
+                }
+                ViewBag.TongTien = tongTien;
             }
 
             int pageSize = 3;

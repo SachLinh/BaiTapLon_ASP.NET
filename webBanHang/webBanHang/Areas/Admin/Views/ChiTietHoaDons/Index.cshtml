@@ -5,6 +5,7 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    int i = 0;
 }
 
 <h2>Chi tiết hóa đơn</h2>
@@ -24,6 +25,7 @@
 
 <table class="table">
     <tr style="color:red">
+        <th>STT</th>
         <th>
             @Html.ActionLink("Tên sản phẩm", "Index", new { sortOrder = ViewBag.SapXepPro, maHD = ViewBag.CurrentMaHD })
         </th>
@@ -42,6 +44,7 @@
     @foreach (var item in Model)
     {
         <tr style="color:black">
+            <td>@(++i)</td>
             <td>
                 @Html.DisplayFor(modelItem => item.Product.ProName)
             </td>
@@ -56,8 +59,13 @@
             </td>
         </tr>
     }
-
+<tr>
+    <td colspan="4" style="text-align: right; color: #ea07c4; font-weight: bold; font-size: 18px;">Tổng tiền</td>
+    <td style="color: #ea07c4; font-weight: bold; font-size: 18px;">@{ var price = Convert.ToDecimal(@ViewBag.TongTien).ToString("#,# VNĐ");}@price</td>
+    
+</tr>
 </table>
+
 
 Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
 @Html.PagedListPager(Model, page => Url.Action("Index", new

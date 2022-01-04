@@ -1,10 +1,11 @@
-﻿@model IEnumerable<webBanHang.Models.Product>
-
+﻿@using webBanHang.Models
+@model IEnumerable<Product>
 
 
 @{
     ViewBag.Title = "TrangChu";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var spbc = (List<SPNoiBat>)ViewBag.SanPhamBanChay;
 }
 
 
@@ -42,6 +43,30 @@
     </div>
     <!-- list product -->
 
+    <div class="content_products">
+        <h2>SẢN PHẨM BÁN CHẠY</h2>
+        <div class="content_list">
+            @foreach (var item in spbc)
+            {
+                <div class="content_item">
+                    <div class="content_img">
+                        @{
+                            string ImagePath = "~/wwwroot/images/" + item.ProImage;
+                        }
+                        <img src="@Url.Content(ImagePath)" width="100" height="200" class="img-thumbnail" />
+                        <a href="@Url.Action("ThemGioHang", "Giohang", new { @class="addCart", @sMaSP = item.ProID, @strURL = Request.Url.ToString() })">
+                            Đặt mua
+                        </a>
+                    </div>
+                    <div class="content_detail">
+                        <span class="category">@Html.DisplayFor(modelItem => item.CataName)</span><br />
+                        <span class="name">@Html.DisplayFor(modelItem => item.ProName)</span><br />
+                        <span class="price">@Html.DisplayFor(modelItem => item.Price)đ</span>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
     <div class="content_products">
         <h2>THỊT CÁ DÂN DÃ</h2>
         <div class="content_list">
