@@ -2,7 +2,6 @@
 @using PagedList.Mvc
 @model PagedList.IPagedList<Product>
 <link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
-@*@model IEnumerable<Product>*@
 
 @{
     ViewBag.Title = "Index";
@@ -19,7 +18,6 @@
         <div class="categories">
             <span>DANH MỤC SẢN PHẨM</span>
             <ul>
-                <li><a href="@Url.Action("Index", new { currentMinPrice = ViewBag.CurrentMinPrice, currentMaxPrice = ViewBag.CurrentMaxPrice })"><i class="fa fa-angle-right"></i>TẤT CẢ</a></li>
                 @foreach (var item in category)
                 {
                     <li>
@@ -36,7 +34,14 @@
         <div class="filter-price">
             <span id="title">LỌC THEO GIÁ</span>
             <div>
-                @using (Html.BeginForm())
+                @using (Html.BeginForm("Index", "SanPham", new
+                {
+                    cataId = ViewBag.CurrentCategory,
+                    currentMinPrice = ViewBag.CurrentMinPrice,
+                    currentMaxPrice = ViewBag.CurrentMaxPrice,
+                    currentFilter = ViewBag.CurrentFilter
+                }))
+
                 {
                     @Html.TextBox("minPrice", ViewBag.CurrentMinPrice as string, new { @placeholder = "Từ" })
                     <i class="fas fa-minus"></i>
@@ -47,6 +52,11 @@
                 }
             </div>
 
+        </div>
+        <div class="remove-all-filter">
+            <a href="@Url.Action("Index")">
+                Xóa tất cả bộ lọc
+            </a>
         </div>
         <!-- End filter price -->
         <!-- New products -->
@@ -69,9 +79,6 @@
                                 @{ var price = Convert.ToDecimal(@item.Price).ToString("#,#");}@price
                                 <span class="currency small"><u>đ</u></span>
                             </div>
-                            @*<div class="product-price">
-                                    {{item.Price | number}}<span class="currency small"><u>đ</u></span>
-                                </div>*@
                         </div>
                     </div>
                 }

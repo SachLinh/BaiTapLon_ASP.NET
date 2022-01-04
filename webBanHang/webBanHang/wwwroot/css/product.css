@@ -78,7 +78,7 @@
 /* Filter by price */
 .filter-price {
     border-top: 1px solid #c2c0c0;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
     padding-top: 10px;
 }
 
@@ -99,18 +99,43 @@
     .filter-price input[type="text"] {
         width: 43%;
         line-height: 20px;
+        font-size: 16px;
     }
 
 .apply-filter input {
-    margin: 15px 0;
+    margin-top: 20px;
     padding: 10px 15px;
     background-color: #a70909;
+    font-size: 16px;
     width: 98%;
     color: #fff;
     border: none;
     border-radius: 5px;
     box-shadow: 1px 1px 5px #302f2f;
 }
+
+    .apply-filter input:hover {
+        cursor: pointer;
+    }
+
+.remove-all-filter {
+    margin-bottom: 10px;
+    padding-top: 20px;
+    width: 100%;
+    border-top: 1px solid #c2c0c0;
+}
+
+    .remove-all-filter a {
+        text-align: center;
+        width: 98%;
+        color: #fff;
+        padding: 10px 0;
+        display: inline-block;
+        background-color: #a70909;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 1px 1px 5px #302f2f;
+    }
 
 /* New product */
 .sidebar .new-product {
@@ -128,6 +153,7 @@
 .new-product .product-item {
     margin: 5px 0;
     box-sizing: border-box;
+    height: 100px;
 }
 
     .new-product .product-item::after {
@@ -143,6 +169,7 @@
     .new-product .product-item .img {
         position: relative;
         z-index: 0;
+        height: 100%;
     }
 
         .new-product .product-item .img a {
@@ -191,11 +218,13 @@
     position: relative;
     border-radius: 5px;
     border: none;
+    transition: 0.3s;
     box-shadow: 1px 1px 5px #302f2f;
 }
 
     .product-item:hover {
         background-color: #ececec;
+        transform: scale(1.04);
     }
 
     .product-item .product-name {
@@ -454,130 +483,3 @@ input[type="checkbox"] {
             .paged-list ul li a {
                 color: #ff00b5;
             }
-/*  */
-/* Quick view */
-.hidden-view, .blur {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-.blur {
-    background-color: #000;
-    opacity: 0.6;
-}
-
-.hidden-view .quick-view {
-    position: absolute;
-    top: 10%;
-    left: 25%;
-    width: 50%;
-    height: 500px;
-    background-color: #ddeaff;
-    border: none;
-    border-radius: 10px;
-    box-shadow: 3px 3px 15px rgb(39, 39, 39);
-}
-
-.quick-view .header {
-    width: 100%;
-    height: 50px;
-    background-color: #2600d1;
-    border: none;
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
-    position: relative;
-}
-
-.hidden-view .title {
-    width: 100%;
-    color: rgb(231, 233, 253);
-    text-align: center;
-    font-weight: bold;
-    font-size: 24px;
-    line-height: 50px;
-}
-
-.hidden-view .close {
-    width: 50px;
-    text-align: right;
-    line-height: 50px;
-    font-size: 32px;
-    color: #fdf5ef;
-    position: absolute;
-    top: 0;
-    right: 10px;
-}
-
-    .hidden-view .close:hover {
-        cursor: pointer;
-    }
-
-.main-info {
-    padding: 50px 50px 20px 30px;
-    height: 450px;
-    overflow: hidden;
-}
-
-.quick-view .img {
-    width: 400px;
-    height: 300px;
-    padding: 0 50px;
-}
-
-.quick-view .info {
-    width: calc(100% - 400px - 30px);
-}
-
-    .quick-view .info input, .quick-view .info > div {
-        font-size: 20px;
-        margin-bottom: 10px;
-    }
-
-        .quick-view .info input[type="number"] {
-            width: 50px;
-        }
-
-    .quick-view .info .name {
-        font-size: 28px;
-        font-weight: bold;
-        color: #f30707;
-        text-align: center;
-        margin-bottom: 30px;
-    }
-
-    .quick-view .info > div > span {
-        font-weight: bold;
-        display: inline-block;
-        width: 50%;
-    }
-
-.currency {
-    font-size: 14px;
-    font-weight: bold;
-    display: inline-block;
-    vertical-align: top;
-}
-
-/*  */
-/* Animations */
-
-.hidden-view.ng-hide-add {
-    opacity: 1;
-}
-
-    .hidden-view.ng-hide-add.ng-hide-add-active {
-        opacity: 0;
-        transition: 0.5s linear all;
-    }
-
-.hidden-view.ng-hide-remove {
-    opacity: 0;
-    transition: 0.5s linear all;
-}
-
-    .hidden-view.ng-hide-remove.ng-hide-remove-active {
-        opacity: 1;
-    }

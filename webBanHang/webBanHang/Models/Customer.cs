@@ -18,7 +18,7 @@ namespace webBanHang.Models
         [StringLength(20)]
         public string Username { get; set; }
 
-        [StringLength(20)]
+        [StringLength(100)]
         public string PassWord { get; set; }
 
         [Key]

@@ -33,6 +33,7 @@ namespace webBanHang.Models
         public string ProImage { get; set; }
 
         [Column(TypeName = "date")]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime? DateOfImport { get; set; }
 
         [StringLength(100)]

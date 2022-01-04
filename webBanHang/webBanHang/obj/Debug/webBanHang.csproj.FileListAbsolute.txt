@@ -383,4 +383,3 @@ E:\Tài liệu ASP.NET\New folder\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\Pa
 E:\Tài liệu ASP.NET\New folder\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\PagedList.xml
 E:\Tài liệu ASP.NET\New folder\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\PagedList.Mvc.xml
 E:\Tài liệu ASP.NET\New folder\BaiTapLon_ASP.NET\webBanHang\webBanHang\obj\Debug\webBanHang.csproj.AssemblyReference.cache
-D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\obj\Debug\webBanHang.csproj.AssemblyReference.cache

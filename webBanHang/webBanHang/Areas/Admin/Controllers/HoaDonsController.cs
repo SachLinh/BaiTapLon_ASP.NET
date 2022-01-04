@@ -21,9 +21,9 @@ namespace webBanHang.Areas.Admin.Controllers
             ViewBag.CurrentSort = sortOrder;
 
 
-            ViewBag.SapTheoNgay = string.IsNullOrEmpty(sortOrder) ? "ngay_desc" : "";
+            ViewBag.SapTheoID = string.IsNullOrEmpty(sortOrder) ? "id_desc" : "";
             ViewBag.SapTheoTen = sortOrder == "ten" ? "ten_desc" : "ten";
-            ViewBag.SapTheoID = sortOrder == "id" ? "id_desc" : "id";
+            ViewBag.SapTheoNgay = sortOrder == "ngay" ? "ngay_desc" : "ngay";
 
             if(searchString != null)
             {
@@ -53,14 +53,14 @@ namespace webBanHang.Areas.Admin.Controllers
                 case "ten":
                     hoaDons = hoaDons.OrderBy(h => h.Customer.Username);
                     break;
-                case "id":
-                    hoaDons = hoaDons.OrderBy(h => h.MaHD);
+                case "ngay":
+                    hoaDons = hoaDons.OrderBy(h => h.ngayDayHang);
                     break;
                 case "id_desc":
                     hoaDons = hoaDons.OrderByDescending(h => h.MaHD);
                     break;
                 default:               
-                    hoaDons = hoaDons.OrderBy(h => h.ngayDayHang);
+                    hoaDons = hoaDons.OrderBy(h => h.MaHD);
                     break;
             }
             int pageSize = 5;

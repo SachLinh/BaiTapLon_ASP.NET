@@ -22,6 +22,7 @@ namespace webBanHang.Areas.Admin.Controllers
             ViewBag.SapTheoID = sortOrder == "ID" ? "ID_desc" : "ID";
             ViewBag.SapTheoGia = sortOrder == "gia" ? "gia_desc" : "gia";
             ViewBag.SapTheoLoaiSP = sortOrder == "cata" ? "cata_desc" : "cata";
+            ViewBag.SapTheoSoLuong = sortOrder == "sl" ? "sl_desc" : "sl";
             if (searchString != null)
             {
                 page = 1;
@@ -50,6 +51,9 @@ namespace webBanHang.Areas.Admin.Controllers
                 case "ID_desc":
                     products = products.OrderByDescending(p => p.ProID);
                     break;
+                case "sl_desc":
+                    products = products.OrderByDescending(p => p.Quantity);
+                    break;
                 case "gia":
                     products = products.OrderBy(p => p.Price);
                     break;
@@ -58,6 +62,9 @@ namespace webBanHang.Areas.Admin.Controllers
                     break;
                 case "cata":
                     products = products.OrderBy(p => p.Catalogy.CataName);
+                    break;
+                case "sl":
+                    products = products.OrderBy(p => p.Quantity);
                     break;
                 default:
                     products = products.OrderBy(p => p.ProName);

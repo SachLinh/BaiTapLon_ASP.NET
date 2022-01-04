@@ -19,7 +19,7 @@
         @Html.HiddenFor(model => model.ProID)
 
         <div class="form-group" style="color:red">
-           Loại SP
+            Loại sản phẩm
             <div class="col-md-10">
                 @Html.DropDownList("ID", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.ID, "", new { @class = "text-danger" })
@@ -27,7 +27,7 @@
         </div>
 
         <div class="form-group" style="color:red">
-           Tên SP
+            Tên sản phẩm
             <div class="col-md-10">
                 @Html.EditorFor(model => model.ProName, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.ProName, "", new { @class = "text-danger" })
@@ -43,7 +43,7 @@
         </div>
 
         <div class="form-group" style="color:red">
-           Giá Bán
+            Giá Bán
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
@@ -51,7 +51,7 @@
         </div>
 
         <div class="form-group" style="color:red">
-           Hình Ảnh
+            Hình Ảnh
             <div class="col-md-10">
                 <img id="output" class="img-thumbnail" alt="anh" width="180" height="200" src="@Url.Content(imagePath)" />
                 <p>
@@ -62,15 +62,15 @@
         </div>
 
         <div class="form-group" style="color:red">
-           Ngày Nhập
+            Ngày Nhập
             <div class="col-md-10">
-                @Html.EditorFor(model => model.DateOfImport, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.DateOfImport, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
                 @Html.ValidationMessageFor(model => model.DateOfImport, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group" style="color:red">
-           Mô Tả
+            Mô Tả
             <div class="col-md-10">
                 @Html.EditorFor(model => model.ProDescription, new { htmlAttributes = new { @class = "form-control", @type = "text" } })
                 @Html.ValidationMessageFor(model => model.ProDescription, "", new { @class = "text-danger" })

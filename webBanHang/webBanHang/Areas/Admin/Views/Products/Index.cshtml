@@ -15,22 +15,22 @@
 {
     <p>
         Tim theo tên: @Html.TextBox("searchString")
-        <input type="submit" value="Tim kiếm" />
+        <input type="submit" value="Tìm kiếm" />
     </p>
 }
 <table class="table">
     <tr style="color:red">
         <th>
-            @Html.ActionLink("Mã SP", "Index", new {sortOrder = ViewBag.SapTheoID})
+            @Html.ActionLink("Mã sản phẩm", "Index", new {sortOrder = ViewBag.SapTheoID})
         </th>
         <th>
-            @Html.ActionLink("Loại SP", "Index", new { sortOrder = ViewBag.SapTheoLoaiSP })
+            @Html.ActionLink("Loại sản phẩm", "Index", new { sortOrder = ViewBag.SapTheoLoaiSP })
         </th>
         <th>
-            @Html.ActionLink("Tên SP", "Index", new { sortOrder = ViewBag.SapTheoTen })
+            @Html.ActionLink("Tên sản phẩm", "Index", new { sortOrder = ViewBag.SapTheoTen })
         </th>
         <th>
-           Số lượng
+            @Html.ActionLink("Số lượng có", "Index", new { sortOrder = ViewBag.SapTheoSoLuong })
         </th>
         <th>
             @Html.ActionLink("Giá", "Index", new { sortOrder = ViewBag.SapTheoGia })

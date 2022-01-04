@@ -18,7 +18,7 @@
     <hr />
     <dl class="dl-horizontal" style="color:black">
         <dt>
-           Loại SP
+           Loại sản phẩm
         </dt>
 
         <dd>
@@ -26,7 +26,7 @@
         </dd>
 
         <dt>
-           Tên SP
+           Tên sản phẩm
         </dt>
 
         <dd>
@@ -58,8 +58,6 @@
                 string ImagePath = "~/wwwroot/images/" + Model.ProImage;
             }
             <img src="@Url.Content(ImagePath)" width="300" class="img-thumbnail" />
-            <br />
-            @Html.DisplayFor(model => model.ProImage)
         </dd>
 
         <dt>

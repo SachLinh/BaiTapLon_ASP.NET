@@ -9,11 +9,11 @@
 <table class="table">
     <tr style="color:red">
         <th>
-           Mã SP
+            Mã SP
         </th>
-           
+
         <th>
-           Tên SP
+            Tên SP
         </th>
         <th>
             Số lượng
@@ -26,6 +26,9 @@
         </th>
         <th>
             Ngày nhập
+        </th>
+        <th>
+            Số lượng mua
         </th>
 
         <th></th>
@@ -57,7 +60,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.DateOfImport)
             </td>
-
+            <td>
+                @Html.DisplayFor(modelItem => item.soluongMua)
+            </td>
 
         </tr>
     }

@@ -22,6 +22,7 @@ namespace webBanHang.Models
         public string Phone { get; set; }
 
         [Column(TypeName = "date")]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime? ngayDayHang { get; set; }
 
         [StringLength(10)]

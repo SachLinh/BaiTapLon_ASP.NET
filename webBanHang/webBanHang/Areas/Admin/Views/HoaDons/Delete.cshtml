@@ -10,11 +10,10 @@
         color:black
     }
 </style>
-<h2>Xóa</h2>
+<h2>Xóa hóa đơn</h2>
 
-<h3>Bạn có chắc chắn muốn xóa hóa đơn này?</h3>
+<h4 class="alert-danger alert">Bạn có chắc chắn muốn xóa hóa đơn này?</h4>
 <div>
-    <h4>HÓA ĐƠN</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -72,7 +71,7 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
+            <input type="submit" value="Xóa" class="btn btn-default" /> |
             @Html.ActionLink("Quay lại", "Index")
         </div>
     }
