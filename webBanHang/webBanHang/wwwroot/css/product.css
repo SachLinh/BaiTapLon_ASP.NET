@@ -101,16 +101,16 @@
         line-height: 20px;
     }
 
-    .filter-price button {
-        margin: 15px 0;
-        padding: 10px 15px;
-        background-color: #a70909;
-        width: 98%;
-        color: #fff;
-        border: none;
-        border-radius: 5px;
-        box-shadow: 1px 1px 5px #302f2f;
-    }
+.apply-filter input {
+    margin: 15px 0;
+    padding: 10px 15px;
+    background-color: #a70909;
+    width: 98%;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px #302f2f;
+}
 
 /* New product */
 .sidebar .new-product {
@@ -236,7 +236,6 @@
     border: none;
     border-radius: 5px;
     padding: 3px 5px;
-
     margin: 30px 0;
     background-color: #a70909;
     width: 98%;
@@ -412,7 +411,7 @@ input[type="checkbox"] {
             padding-left: 30px;
         }
 
-            
+
         .product-list .list .info .product-name {
             font-size: 24px;
         }
@@ -426,10 +425,10 @@ input[type="checkbox"] {
             font-size: 16px;
         }
 
-        .product-list .list .quick-view-btn {
-            bottom: 40%;
-            left: 30%;
-        }
+    .product-list .list .quick-view-btn {
+        bottom: 40%;
+        left: 30%;
+    }
 
     .product-list .list::after {
         display: block;

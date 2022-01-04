@@ -1,40 +1,59 @@
-﻿@model IEnumerable<webBanHang.Models.Catalogy>
+﻿@model PagedList.IPagedList<webBanHang.Models.Catalogy>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Catagogy</h2>
+<h2>Danh mục sản phẩm</h2>
 
 <p>
     @Html.ActionLink("Thêm mới danh mục", "Create")
 </p>
+@using (Html.BeginForm())
+{
+    <p>
+        Tìm danh mục theo tên: @Html.TextBox("searchString", ViewBag.CurrentFilter as string)
+        <input type="submit" value="Tìm kiếm" />
+    </p>
+}
 <table class="table">
     <tr style="color:red">
         <th>
-            @Html.DisplayNameFor(model => model.ID)
+            Mã danh mục
         </th>
-        <th >
-            @Html.DisplayNameFor(model => model.CataName)
+        <th>
+            @Html.ActionLink("Tên danh mục", "Index", new { sortOrder = ViewBag.SapTheoTen, currentFilter = ViewBag.CurrentFilter })
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-<tr>
-    <td style="color:black">
-        @Html.DisplayFor(modelItem => item.ID)
-    </td>
-    <td style="color:black">
-        @Html.DisplayFor(modelItem => item.CataName)
-    </td>
-    <td>
-        @Html.ActionLink("Chỉnh sửa", "Edit", new { id = item.ID.Trim() }) |
-        @Html.ActionLink("Chi tiết", "Details", new { id = item.ID.Trim() }) |
-        @Html.ActionLink("Xóa", "Delete", new { id = item.ID.Trim() })
-    </td>
-</tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td style="color:black">
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td style="color:black">
+                @Html.DisplayFor(modelItem => item.CataName)
+            </td>
+            <td>
+                @Html.ActionLink("Chỉnh sửa", "Edit", new { id = item.ID.Trim() }) |
+                @Html.ActionLink("Chi tiết", "Details", new { id = item.ID.Trim() }) |
+                @Html.ActionLink("Xóa", "Delete", new { id = item.ID.Trim() })
+            </td>
+        </tr>
+    }
 
 </table>
+
+<br />
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+@Html.PagedListPager(Model, page => Url.Action("Index", new
+{
+    page,
+    sortOrder = ViewBag.CurrentSort,
+    currentFilter = ViewBag.CurrentFilter
+}))

@@ -24,13 +24,12 @@
         <div class="container">
             <div class="header_root">
                 <div class="header_top">
-                    <a href="#"><h1>NÔNG SẢN XANH</h1></a>
+                    <a href="/"><h1>NÔNG SẢN XANH</h1></a>
                     <div class="header_TimKiem">
-                        <select>
-                            <option>All</option>
-                            <option>Sản phẩm</option>
-                        </select>
-                        <input placeholder="Search..." />
+                        @using (Html.BeginForm("Index", "SanPham", FormMethod.Post))
+                        {
+                            @Html.TextBox("searchString", ViewBag.CurrentFilter as string, new { @placeholder = "Tìm kiếm sản phẩm..." })
+                        }
                     </div>
                     <div class="header_LogIn">
                         <a href="/DangNhap/DangNhap">
@@ -49,7 +48,7 @@
             <div class="header_Menu_root">
                 <ul class="header_List">
                     <li class="header_item">
-                       @Html.ActionLink("Trang chủ", "TrangChu", "TrangChu")
+                        @Html.ActionLink("Trang chủ", "TrangChu", "TrangChu")
                     </li>
                     <li class="header_item">
                         @Html.ActionLink("Giới thiệu", "TrangChu", "TrangChu")

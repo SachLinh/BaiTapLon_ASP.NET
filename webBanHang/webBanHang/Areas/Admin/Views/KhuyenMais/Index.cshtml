@@ -1,4 +1,7 @@
-﻿@model IEnumerable<webBanHang.Models.KhuyenMai>
+﻿@model PagedList.IPagedList<webBanHang.Models.KhuyenMai>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
 
 @{
     ViewBag.Title = "Index";
@@ -10,31 +13,48 @@
 <p>
     @Html.ActionLink("Thêm mới khuyến mại", "Create")
 </p>
+
+@using (Html.BeginForm())
+{
+    <p>
+        Tìm khuyến mãi theo mã: @Html.TextBox("searchString", ViewBag.CurrentFilter as string)
+        <input type="submit" value="Tìm kiếm" />
+    </p>
+}
 <table class="table">
     <tr style="color:red">
         <th>
-            @Html.DisplayNameFor(model => model.MaKhuyenMai)
+            @Html.ActionLink("Mã khuyến mãi", "Index", new { sortOrder = ViewBag.SapTheoMa, currentFilter = ViewBag.CurrentFilter })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.GiaTri)
+            Giá trị
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr style="color:black">
-        <td>
-            @Html.DisplayFor(modelItem => item.MaKhuyenMai)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.GiaTri)
-        </td>
-        <td>
-            @Html.ActionLink("Chỉnh sửa", "Edit", new { id=item.MaKhuyenMai.Trim() }) |
-            @Html.ActionLink("Chi tiết", "Details", new { id=item.MaKhuyenMai.Trim() }) |
-            @Html.ActionLink("Xóa", "Delete", new { id=item.MaKhuyenMai.Trim() })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr style="color:black">
+            <td>
+                @Html.DisplayFor(modelItem => item.MaKhuyenMai)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GiaTri)
+            </td>
+            <td>
+                @Html.ActionLink("Chỉnh sửa", "Edit", new { id = item.MaKhuyenMai.Trim() }) |
+                @Html.ActionLink("Chi tiết", "Details", new { id = item.MaKhuyenMai.Trim() }) |
+                @Html.ActionLink("Xóa", "Delete", new { id = item.MaKhuyenMai.Trim() })
+            </td>
+        </tr>
+    }
 
 </table>
+
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+@Html.PagedListPager(Model, page => Url.Action("Index", new
+{
+    page,
+    sortOrder = ViewBag.CurrentSort,
+    currentFilter = ViewBag.CurrentFilter
+}))

@@ -1,4 +1,6 @@
-﻿@model IEnumerable<webBanHang.Models.ChiTietHoaDon>
+﻿@model PagedList.IPagedList<webBanHang.Models.ChiTietHoaDon>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 
 @{
     ViewBag.Title = "Index";
@@ -7,53 +9,65 @@
 
 <h2>Chi tiết hóa đơn</h2>
 
-@*<p>
-    @Html.ActionLink("Create New", "Create")
-</p>*@
+<h4>Mã hóa đơn: @ViewBag.CurrentMaHD</h4>
+
+<h5>Tên khách hàng: @ViewBag.TenKH</h5>
+<br />
+
 @using (Html.BeginForm())
 {
     <p>
-        Tìm theo mã hóa đơn: @Html.TextBox("searchString")
+        Tìm theo tên sản phẩm: @Html.TextBox("searchString")
         <input value="Tìm kiếm" type="submit" />
     </p>
 }
+
 <table class="table">
     <tr style="color:red">
         <th>
-            @Html.ActionLink("Mã HD", "Index", new { sortOrder = ViewBag.SapXepHD })
-        </th>
-        <th>
-            @Html.ActionLink("Mã SP", "Index", new { sortOrder = ViewBag.SapXepPro })
+            @Html.ActionLink("Tên sản phẩm", "Index", new { sortOrder = ViewBag.SapXepPro, maHD = ViewBag.CurrentMaHD })
         </th>
         <th>
             Số lượng mua
         </th>
         <th>
-            Giá 
+            Giá
+        </th>
+        <th>
+            Thành tiền
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr style="color:black">
-        <td>
-            @Html.DisplayFor(modelItem => item.HoaDon.MaHD)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Product.ProID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SoLuongMua)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        @*<td>
-            @Html.ActionLink("Edit", "Edit", new { id=(item.MaHD, item.ProID) }) |
-            @Html.ActionLink("Details", "Details", new { id = (item.MaHD, item.ProID) }) |
-            @Html.ActionLink("Delete", "Delete", new { id = (item.MaHD, item.ProID) })
-        </td>*@
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr style="color:black">
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.ProName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoLuongMua)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Total)
+            </td>
+        </tr>
+    }
 
 </table>
+
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+@Html.PagedListPager(Model, page => Url.Action("Index", new
+{
+    page,
+    sortOrder = ViewBag.CurrentSort,
+    currentFilter = ViewBag.CurrentFilter,
+    maHD = ViewBag.CurrentMaHD
+}))
+
+<div>
+    @Html.ActionLink("Quay lại", "Index", "HoaDons")
+</div>

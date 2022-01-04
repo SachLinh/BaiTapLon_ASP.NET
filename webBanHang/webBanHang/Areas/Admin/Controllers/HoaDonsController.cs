@@ -21,8 +21,8 @@ namespace webBanHang.Areas.Admin.Controllers
             ViewBag.CurrentSort = sortOrder;
 
 
-            ViewBag.SapTheoTen = string.IsNullOrEmpty(sortOrder) ? "ngay_desc" : "ngay";
-            ViewBag.SapTheoNgay = sortOrder == "ten" ? "ten_desc" : "ten";
+            ViewBag.SapTheoNgay = string.IsNullOrEmpty(sortOrder) ? "ngay_desc" : "";
+            ViewBag.SapTheoTen = sortOrder == "ten" ? "ten_desc" : "ten";
             ViewBag.SapTheoID = sortOrder == "id" ? "id_desc" : "id";
 
             if(searchString != null)

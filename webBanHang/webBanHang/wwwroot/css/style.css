@@ -48,12 +48,12 @@ body {
 }
 
 .header h1 {
-    margin-right: 50px;
+    margin-right: 100px;
     color: #11519b;
 }
 
 .header_TimKiem {
-    margin-right: 50px;
+    margin-right: 100px;
 }
 
     .header_TimKiem select {
@@ -70,9 +70,16 @@ body {
         padding-left: 20px;
     }
 
+.header_LogIn::after {
+    clear: both;
+    content: "";
+    display: block;
+}
+
 .header_LogIn {
     padding-top: 10px;
     padding-bottom: 10px;
+    float: right;
 }
 
     .header_LogIn a {

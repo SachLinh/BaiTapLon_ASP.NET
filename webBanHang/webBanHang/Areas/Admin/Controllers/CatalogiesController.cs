@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using webBanHang.Models;
+using PagedList;
 
 namespace webBanHang.Areas.Admin.Controllers
 {
@@ -15,9 +16,36 @@ namespace webBanHang.Areas.Admin.Controllers
         private WebBanHangNongSan db = new WebBanHangNongSan();
 
         // GET: Admin/Catalogies
-        public ActionResult Index()
+        public ActionResult Index(string searchString, string sortOrder, string currentFilter, int? page)
         {
-            return View(db.Catalogies.ToList());
+            ViewBag.CurrentSort = sortOrder;
+            ViewBag.SapTheoTen = string.IsNullOrEmpty(sortOrder) ? "ten_desc" : "";
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+            ViewBag.CurrentFilter = searchString;
+            var cata = db.Catalogies.Select(c => c);
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                cata = cata.Where(c => c.CataName.Contains(searchString));
+            }
+            switch (sortOrder)
+            {
+                case "ten_desc":
+                    cata = cata.OrderByDescending(c => c.CataName);
+                    break;
+                default:
+                    cata = cata.OrderBy(c => c.CataName);
+                    break;
+            }
+            int pageSize = 3;
+            int pageNumer = (page ?? 1);
+            return View(cata.ToPagedList(pageNumer, pageSize));
         }
 
         // GET: Admin/Catalogies/Details/5

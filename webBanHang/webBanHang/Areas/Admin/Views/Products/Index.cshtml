@@ -6,7 +6,7 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Product</h2>
+<h2>Sản phẩm</h2>
 
 <p>
     @Html.ActionLink("Thêm mới sản phẩm", "Create")
@@ -15,7 +15,7 @@
 {
     <p>
         Tim theo tên: @Html.TextBox("searchString")
-        <input type="submit" value="Tim kiem" />
+        <input type="submit" value="Tim kiếm" />
     </p>
 }
 <table class="table">
@@ -67,9 +67,7 @@
                 @{
                     string ImagePath = "~/wwwroot/images/" + item.ProImage;
                 }
-                <img src="@Url.Content(ImagePath)" width="150" class="img-thumbnail" />
-                <br />
-                @Html.DisplayFor(modelItem => item.ProImage)
+                <img src="@Url.Content(ImagePath)" width="100" class="img-thumbnail" />
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.DateOfImport)
