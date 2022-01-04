@@ -144,7 +144,6 @@ D:\CSDL trên Web\ASP_BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\System.Web
 D:\CSDL trên Web\ASP_BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\System.Web.Helpers.xml
 D:\CSDL trên Web\ASP_BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\System.Web.Mvc.xml
 D:\CSDL trên Web\ASP_BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\CSDL trên Web\ASP_BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\obj\Debug\webBanHang.csprojAssemblyReference.cache
 D:\CSDL trên Web\ASP_BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\obj\Debug\webBanHang.csproj.CoreCompileInputs.cache
 D:\CSDL trên Web\ASP_BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\obj\Debug\webBanHang.csproj.CopyComplete
 D:\CSDL trên Web\ASP_BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\obj\Debug\webBanHang.dll
@@ -383,3 +382,7 @@ E:\Tài liệu ASP.NET\New folder\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\Pa
 E:\Tài liệu ASP.NET\New folder\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\PagedList.xml
 E:\Tài liệu ASP.NET\New folder\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\PagedList.Mvc.xml
 E:\Tài liệu ASP.NET\New folder\BaiTapLon_ASP.NET\webBanHang\webBanHang\obj\Debug\webBanHang.csproj.AssemblyReference.cache
+D:\CSDL trên Web\ASP_BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\PagedList.dll
+D:\CSDL trên Web\ASP_BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\PagedList.Mvc.dll
+D:\CSDL trên Web\ASP_BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\PagedList.xml
+D:\CSDL trên Web\ASP_BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\PagedList.Mvc.xml
