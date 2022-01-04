@@ -1844,6 +1844,7 @@
     <Compile Include="Areas\Admin\Controllers\KhuyenMaisController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SanPhamBanChayController.cs" />
     <Compile Include="Controllers\DangKyController.cs" />
     <Compile Include="Controllers\DangNhapController.cs" />
     <Compile Include="Controllers\GioHangController.cs" />
@@ -1860,6 +1861,7 @@
     <Compile Include="Models\HoaDon.cs" />
     <Compile Include="Models\KhuyenMai.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\SPNoiBat.cs" />
     <Compile Include="Models\WebBanHangNongSan.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -2071,6 +2073,7 @@
     <Content Include="Areas\Admin\Views\ChiTietHoaDons\Details.cshtml" />
     <Content Include="Areas\Admin\Views\ChiTietHoaDons\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\ChiTietHoaDons\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\SanPhamBanChay\Index.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />

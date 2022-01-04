@@ -1,4 +1,4 @@
-﻿namespace webBanHang.Models
+namespace webBanHang.Models
 {
     using System;
     using System.Collections.Generic;
@@ -26,15 +26,14 @@
         public string ProName { get; set; }
 
         public int? Quantity { get; set; }
-
         [DisplayFormat(DataFormatString = "{0:0,##0}")]
         public int? Price { get; set; }
 
         [StringLength(100)]
         public string ProImage { get; set; }
 
-        [StringLength(30)]
-        public string DateOfImport { get; set; }
+        [Column(TypeName = "date")]
+        public DateTime? DateOfImport { get; set; }
 
         [StringLength(100)]
         public string ProDescription { get; set; }

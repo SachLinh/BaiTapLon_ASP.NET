@@ -40,7 +40,7 @@ create table Product
   Quantity   int,
   Price    int,
   ProImage    nvarchar(100),
-  DateOfImport   nvarchar(30),
+  DateOfImport   date,
   ProDescription  nvarchar(100)
 )
 

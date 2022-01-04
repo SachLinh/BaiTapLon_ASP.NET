@@ -1,4 +1,4 @@
-﻿namespace webBanHang.Models
+namespace webBanHang.Models
 {
     using System;
     using System.Collections.Generic;
@@ -33,7 +33,6 @@
         public bool? ThanhToan { get; set; }
 
         public bool? GiaoHang { get; set; }
-
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTietHoaDon> ChiTietHoaDons { get; set; }
