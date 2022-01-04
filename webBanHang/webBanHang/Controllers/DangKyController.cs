@@ -27,8 +27,8 @@ namespace webBanHang.Controllers
             var hoten = collection["hoten"];
             var email = collection["email"];
             var sdt = collection["sdt"];
-            var matKhau = collection["matKhau"];
-            var matKhau2 = collection["matKhau2"];
+            var matKhau = DangNhapController.Instance.LayMaMD5(collection["matKhau"]);
+            var matKhau2 = DangNhapController.Instance.LayMaMD5(collection["matKhau2"]);
             var diaChi = collection["diaChi"];
             
 

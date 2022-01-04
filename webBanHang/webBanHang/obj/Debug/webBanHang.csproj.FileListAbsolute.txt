@@ -386,3 +386,4 @@ D:\CSDL trên Web\ASP_BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\PagedList.
 D:\CSDL trên Web\ASP_BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\PagedList.Mvc.dll
 D:\CSDL trên Web\ASP_BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\PagedList.xml
 D:\CSDL trên Web\ASP_BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\bin\PagedList.Mvc.xml
+D:\Kun\University\ASP.NET\BTL\BaiTapLon_ASP.NET\webBanHang\webBanHang\obj\Debug\webBanHang.csproj.AssemblyReference.cache

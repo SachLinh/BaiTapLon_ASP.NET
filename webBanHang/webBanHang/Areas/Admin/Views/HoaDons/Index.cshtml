@@ -57,7 +57,14 @@
                 @Html.DisplayFor(modelItem => item.Customer.Username)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.KhuyenMai.MaKhuyenMai)
+                @if (item.MaKhuyenMai == "")
+                {
+                <span>Không có</span>
+                }
+                else
+                {
+                    @Html.DisplayFor(modelItem => item.MaKhuyenMai)
+                }
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ngayDayHang)

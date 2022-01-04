@@ -25,9 +25,6 @@
             @Html.ActionLink("Tên Đăng Nhập", "Index", new { sortOrder = ViewBag.SapTheoTen, currentFilter = ViewBag.CurrentFilter })
         </th>
         <th>
-            Mật Khẩu
-        </th>
-        <th>
             Email
         </th>
         <th>
@@ -47,9 +44,6 @@
         <tr style="color:black">
             <td>
                 @Html.DisplayFor(modelItem => item.Username)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PassWord)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Email)

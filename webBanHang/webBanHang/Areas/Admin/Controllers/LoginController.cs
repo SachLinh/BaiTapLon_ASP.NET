@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using webBanHang.Models;
+using webBanHang.Controllers;
 
 
 namespace webBanHang.Areas.Admin.Controllers
@@ -23,7 +24,7 @@ namespace webBanHang.Areas.Admin.Controllers
             if(ModelState.IsValid)
             {
                 string Name = userName;
-                string Pass = passWord;
+                string Pass = DangNhapController.Instance.LayMaMD5(passWord);
                 var acc = db.Admins.SingleOrDefault(x => x.UserName == Name && x.PassWord == Pass);
                 if (acc != null)
                 {
