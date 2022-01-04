@@ -62,7 +62,7 @@ create table HoaDon
   MaHD     int IDENTITY(1,1) primary key,
   Phone    nvarchar(10)   foreign key(Phone) references  Customer(Phone) on update cascade on delete cascade,
   ngayDayHang  date,
-  MaKhuyenMai  nvarchar(10)   foreign key(MaKhuyenMai)  references KhuyenMai(MaKhuyenMai) on update cascade on delete cascade,
+  MaKhuyenMai  nvarchar(10),
   NoiNhanHang   nvarchar(200),
   ThanhToan    bit,
   GiaoHang   bit,
@@ -146,7 +146,7 @@ values ('KM01', 0.2),
        ('KM02', 0.3),
 	   ('KM03', 0.5)
 insert into KhuyenMai
-values ('KM00', 0)
+values ('', 0)
 go
 
 select * from Admin

@@ -7,6 +7,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using webBanHang.Models;
+using webBanHang.Controllers;
+
 using PagedList;
 
 namespace webBanHang.Areas.Admin.Controllers
@@ -80,6 +82,8 @@ namespace webBanHang.Areas.Admin.Controllers
             {
                 if (ModelState.IsValid)
                 {
+                    var pass = DangNhapController.Instance.LayMaMD5(Request["PassWord"]);
+                    customer.PassWord = pass;
                     db.Customers.Add(customer);
                     db.SaveChanges();
                    

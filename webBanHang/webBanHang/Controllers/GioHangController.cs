@@ -103,11 +103,11 @@ namespace webBanHang.Controllers
         [HttpGet]
         public ActionResult DatHang()
         {
-            if(Session["Customer"] == null || Session["Customer"].ToString() == null)
+            if (Session["Customer"] == null || Session["Customer"].ToString() == null)
             {
                 return RedirectToAction("DangNhap", "DangNhap");
             }
-            if(Session["GioHang"] == null)
+            if (Session["GioHang"] == null)
             {
                 return RedirectToAction("TrangChu", "TrangChu");
             }
@@ -125,7 +125,10 @@ namespace webBanHang.Controllers
             List<gioHang> gh = LayGioHang();
             hd.Phone = cus.Phone;
             hd.ngayDayHang = DateTime.Now;
-            hd.MaKhuyenMai = collection["MaKM"];
+            if (collection["MaKM"] != null)
+                hd.MaKhuyenMai = collection["MaKM"];
+            else
+                hd.MaKhuyenMai = "";
             hd.NoiNhanHang = collection["NoiNhanHang"];
             hd.ThanhToan = false;
             hd.GiaoHang = false;
